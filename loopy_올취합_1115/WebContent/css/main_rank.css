@@ -1,0 +1,156 @@
+@charset "UTF-8";
+#ranking{
+            width: 1160px;
+            height: 2000px;
+            background-color: #121212;
+            padding: 20px;
+            position: relative;
+            color: #fff;
+            margin: auto;
+        }
+
+        #rankingContent{
+            clear: both;
+        }
+        #rankingColumn>div{
+            float:left;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 1px 1px 5px grey;
+        }
+        #rankingColumn{
+            border-bottom: 1px solid #424242;
+            width: 1160px;
+            height: 30px;
+            font-size: 20px;
+            background-color: #311b92;
+            position: relative;
+        }
+
+        #rankingColumn>div:nth-child(1),#rankingContent>.rankingList>div:nth-child(1){
+            width:100px;
+        }
+        #rankingColumn>div:nth-child(2),#rankingContent>.rankingList>div:nth-child(2){
+            width:200px;
+        }
+        #rankingColumn>div:nth-child(3),#rankingContent>.rankingList>div:nth-child(3){
+            width:400px;
+        }
+        #rankingColumn>div:nth-child(4),#rankingContent>.rankingList>div:nth-child(4) {
+            width: 460px;
+        }
+        .rankingList{
+            border-bottom: 1px solid #424242;
+            width: 1160px;
+            height: 30px;
+        }
+        .rankingList>div{
+            float:left;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        html>body>#ranking>div:nth-child(2){
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            width: 260px;
+            height: 42px;
+            border-radius: 10px;
+        }
+        #ranking>div:nth-child(2) input{
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            outline: 1px solid #000;
+        }
+        #ranking>div:nth-child(2) button{
+            font-size: 20px;
+            width: 44px;
+            height: 44px;
+            border:2px solid transparent;
+        }
+        #ranking>div:nth-child(2) button:hover{
+            background-color: #424242;
+            color: #fff;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+        .rankingList a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .on{
+            background-color: #311b92;
+            font-weight: 900;
+            box-shadow: 7px 7px 10px #424242;
+            text-shadow: 7px 7px 10px #000;
+        }
+        #rankingTab>div{
+            float:left;
+            border-radius:15px;
+            transform: translateY(10px);
+        }
+        #rankingTab>div>a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 30px;
+            padding: 15px 30px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .rankImg>img{
+            transform: translateY(3px);
+        }
+        #myRank{
+            background-color: #424242;
+        }
+        #rankingPopup{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 240px;
+            height: 130px;
+            background-color: #311b92;
+            margin: -120px;
+            padding: 20px;
+        }
+        #totalRanking>div{
+            width: 100px;
+            height: 100px;
+            margin-left:20px;
+        }
+        .full{
+            width: 100%;
+            height:100%;
+            left:0;
+            top:0;
+            position: fixed;
+            background-color: rgba(10,10,10,0.5);
+            cursor: pointer;
+            display: none;
+        }
+        .level{
+            display: block;
+            width: 25px;
+            height:25px;
+            text-align: center;
+            line-height: 25px;
+            transform: translateY(2px);
+        }
+        .levelCol{
+            background-image: url(/img/cd.jpg);
+            background-size: 120% 120%;
+            background-repeat: no-repeat;
+            background-position: -1px -1px;
+            border: 1px solid red;
+            box-shadow: 0px 0px 4px red;
+            border-radius: 20px;
+            margin: auto;
+            color: ivory;
+            font-weight: 900;
+            text-shadow: 1px 1px #121212;
+        }

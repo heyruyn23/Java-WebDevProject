@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+        #header{
+            width: auto;
+            height: 50px;
+            background-image: linear-gradient(-179deg,#121212, #311b92);
+            margin-bottom: 50px;
+        }/*#header end*/
+
+        .headerIndex{
+            margin: 0 auto;
+            width: 1200px;
+            height: 50px;
+            font-size: 20px;
+            position:relative;
+        }/*.headerIndex end*/
+
+
+        .headerIndex div, .headerIndex h1{
+            display: inline-block;
+            /*margin-left: 10px;*/
+            height: 30px;
+        }/*.headerIndex div*/
+
+        .headerIndex div a{
+            display: block;
+            text-align: center;
+            height: 40px;
+        }
+        .logo {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .logo a {
+            margin-top: 5px;
+            width: 100px;
+            height: 40px;
+            background-image: url("/img/logo_em.png");
+            background-size: contain;
+        }
+
+        .headerIndex .songList{
+            width: 50px;
+            /*background-color: white;*/
+        }
+
+        .songList a{
+            width: 50px;
+        }
+
+        .headerIndex .looper{
+            width: 50px;
+            /*background-color: white;*/
+        }
+
+        .looper a{
+            width: 50px;
+        }
+
+        .headerIndex .community{
+            width: 90px;
+            /*background-color: white;*/
+        }
+
+        .community a{
+            width: 90px;
+        }
+
+        .headerIndex .ranking{
+            width: 50px;
+            /*background-color: white;*/
+        }
+
+        .ranking a{
+            width: 50px;
+        }
+        
+/*         .headerIndex .totalSearch{
+        	width: 200px;
+        	height: 30px;
+        } */
+
+        .headerIndex .betting{
+            width: 50px;
+            /*background-color: white;*/
+        }
+
+        .betting a{
+            width: 50px;
+        }
+        
+        .user{
+            margin-left: 50px;
+            position: absolute;
+            right: 50px;
+            margin-top: 5px;
+        }
+        .profile img{
+            vertical-align: middle;
+            border-radius: 20px;
+        }
+
+        .myPage, .logout{
+            width: 100px;
+            margin-left: 20px;
+        }
+        
+        .message{
+            font-size: 25px;
+            vertical-align: middle;
+        }

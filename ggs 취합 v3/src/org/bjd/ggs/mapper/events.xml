@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="events">
+	<select id="selectList"
+			resultType="Event">
+			SELECT no, title, purpose_no purposeNo, content, hit, end_date endDate
+			FROM events
+			WHERE end_date > systimestamp
+	</select>
+	
+	<select id="selectListEnded"
+			resultType="Event"
+			parameterType="PageVO">
+			SELECT no, title, purposeNo, content, hit, startDate, endDate, r
+			FROM(SELECT no, title, purpose_no purposeNo,
+					 content, hit,
+					 start_date startDate, end_date endDate, rownum r
+				FROM events
+				WHERE systimestamp > end_date
+				ORDER BY end_date DESC)
+			WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectEndedTotal"
+			resultType="int">
+			SELECT COUNT(*)
+			FROM events
+			WHERE systimestamp > end_date
+	</select>
+	
+	<select id="selectOne"
+			parameterType="int"
+			resultType="Event">
+			SELECT no, title, purpose_no purposeNo, content, hit, start_date startDate, end_date endDate
+			FROM events
+			WHERE no = #{int}
+	</select>
+	
+	<update id="updateHit" parameterType="int">
+		UPDATE events 
+		SET hit = hit+1
+		WHERE no = #{no}
+	</update>
+</mapper>  
+
+
+
+

@@ -1,0 +1,253 @@
+@charset="UTF-8";
+
+       #communityTap{
+            margin: 0 auto;
+            width: 1200px;
+            height: 50px;
+        }
+
+        #communityTap div{
+            float: left;
+            width: 150px;
+            height: 50px;
+            margin-right: 20px;
+            border-radius: 10px 10px 0 0;
+            background-color: #121212;
+            /*border: 1px solid #424242;*/
+            color: white;
+        }
+
+        #communityTap .on{
+            background-color: #311b92;
+            font-size: 18px;
+        }
+
+        #communityTap div a{
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            transition: .5s ease;
+        }
+
+        #communityTap div a:hover{
+            background-color: #311b92;
+            font-size: 18px;
+        }
+
+        /* Pagination links */
+        .pagination a {
+            color: white;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        .boardListContents{
+            margin: 0 auto;
+            width: 1200px;
+            height: 96px;
+            background-color: black;
+            border-top: 2px solid #424242;
+            position: relative;
+        }
+
+        .searchBoard{
+            margin: 0 auto;
+            width: 350px;
+            height: 40px;
+        }
+
+        .searchBoard .boardListSearchSource{
+            height: 30px;
+            border-radius: 5px
+        }
+
+        .boardListContents .communityTitle{
+            font-size: 30px;
+            color: white;
+            top: 20px;
+            left: 20px;
+            position: absolute;
+        }
+
+        .boardListContentsIndex{
+            width: 1200px;
+            height: 30px;
+            margin-top: 29px;
+        }
+
+        .boardListContentsIndex div{
+            float: left;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+        .boardListContentsIndex div:nth-child(1){
+            width: 40px;
+        }
+        .boardListContentsIndex div:nth-child(2){
+            width: 600px;
+        }
+        .boardListContentsIndex div:nth-child(3){
+            width: 200px;
+        }
+        .boardListContentsIndex div:nth-child(4){
+            width: 180px;
+        }
+        .boardListContentsIndex div:nth-child(5){
+            width: 90px;
+        }
+        .boardListContentsIndex div:nth-child(6){
+            width: 90px;
+        }
+
+
+        .boardListContents .communityWrite{
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            position: absolute;
+            right: 30px;
+            bottom: 40px;
+        }
+
+        .boardListContents .communityWrite a{
+            transition: .5s ease;
+        }
+
+        .boardListContents .communityWrite a:hover{
+            color: #311b92;
+        }
+
+        .boardListContents .indexNum{
+            width: 150px;
+            height: 30px;
+            position:absolute;
+            right: 80px;
+            bottom: 40px;
+        }
+
+        .boardListContents .indexNum select{
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        .allBoardList{
+            width: 1200px;
+            min-height: 660px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        .allBoardList li{
+            width: 1200px;
+            height: 28px;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #fff;
+            text-align :center;
+            line-height: 28px;
+        }
+        .allBoardList li div{
+            float: left;
+            height: 30px;
+        }
+
+        .allBoardList .allBoardListNo{
+            width: 40px;
+
+        }
+        .allBoardList .allBoardListName{
+            width: 560px;
+            text-align: left;
+            text-indent: 30px;
+        }
+        .allBoardList .allBoardListName a{
+            display: block;
+            width: 560px;
+        }
+        .allBoardList .allBoardListLevel{
+            width: 40px;
+            line-height: 22px;
+        }
+        .allBoardList .allBoardListLevel span{
+        width: 35px;
+        height: 25px;
+        border: 2px solid #383838;
+        border-radius: 2px;
+        font-size:15px;
+        }
+        .allBoardList .allBoardListWriter{
+            width: 200px;
+        }
+        .allBoardList .allBoardListWriter a{
+            display: block;
+            width: 200px;
+        }
+        .allBoardList .allBoardListUploadDate{
+            width: 180px;
+        }
+        .allBoardList .allBoardListViewCount{
+            width: 90px;
+        }
+        .allBoardList .allBoardListLikeCount{
+            width: 90px;
+        }
+
+        .middleIndex div{
+            width: 150px;
+            heigth: 30px;
+            font-size: 20px;
+            margin-left: 20px;
+            top: 30px;
+            position: absolute;
+        }
+
+        .bottom{
+            width: 1200px;
+            height: 90px;
+            margin: 0 auto;
+            background-color: black;
+            position: relative;
+        }
+
+        .pagination{
+            margin: 0 auto;
+            width: 350px;
+            height: 32px;
+        }
+        /* Style the active/current link */
+        .pagination a.active {
+            background-color: #311b92;
+            color: white;
+        }
+        /* Add a grey background color on mouse-over */
+        .pagination a:hover:not(.active) {
+            background-color: #463a84;
+        }
+
+        .bottom .myPost{
+            position: absolute;
+            width: 150px;
+            height: 30px;
+            right: 80px;
+            top: 30px;
+        }
+
+        .myPost button{
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+            outline: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: .5s ease;
+        }
+
+        .myPost button:hover{
+            background-color: #311b92;
+            font-size: 22px;
+        }

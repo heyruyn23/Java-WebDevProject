@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tags">
+	
+	<insert id="insert" parameterType="Tag">
+<selectKey keyProperty="no" order="BEFORE" resultType="int">
+	SELECT tags_SEQ.NEXTVAL
+	FROM dual
+</selectKey>
+INSERT INTO tags(NO,tag,REGDATE)
+VALUES(#{no},#{tag},systimestamp)
+</insert>
+
+<select id="selectOne" resultType="Tag" parameterType="String">
+SELECT NO,TAG,REGDATE
+FROM tags
+WHERE tag = #{tag}
+</select>
+	
+</mapper>

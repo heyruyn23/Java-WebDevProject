@@ -1,0 +1,143 @@
+﻿#content{
+    min-height:1200px;
+    margin:auto;
+    background-color:#fff;
+    text-align: center;
+}
+.choose{
+    min-height: 800px;
+    padding:15px;
+}
+#cardList{
+    width:1500px;
+    min-height: 800px;
+    /*border:1px solid green;*/+
+    margin-bottom:150px;
+    margin-top:120px;
+    /*동적으로 크기 변경*/
+    display:inline-block;
+}
+.choose_card{
+    width:218px;
+    height:318px;
+    background-color:#fff;
+    margin:15px;
+    float:left;
+    border:1px solid #9E9E9E;
+    border-radius:5px;
+    box-shadow: 1px 1px 0px gray;
+    position:relative;
+    z-index:0;
+    cursor:pointer;
+    transition: .2s ease-in;
+}
+.choose_card::after{
+    clear:both;
+}
+.choose_card:hover{
+    transform:scale(1.3);
+    z-index:5;
+}
+.card_overlay {
+    width:220px;
+    height:318px;
+    background-color:transparent;
+    float:left;
+    position:absolute;
+    z-index:0;
+    display:none;
+    top:0px;
+}
+.card_overlay.chose {display:block;}
+.card_evaluate{
+    width:220px;
+    height:150px;
+    float:left;
+    background-color:rgba(120,120,120,0.7);
+    position:relative;
+    top:170px;
+}
+.card_evaluate .good,.card_evaluate .bad,.card_evaluate .usually{
+    width:50px;
+    height:50px;
+    font-size:40px;
+    position:absolute;
+    top:40px;
+}
+.card_evaluate .good{
+    left:45px;
+}
+.card_evaluate .usually{
+    left:85px;
+}
+.card_evaluate .bad{
+    right:45px;
+}
+.card_evaluate .good:hover,.card_evaluate .bad:hover,.card_evaluate .usually:hover{
+    animation: swing .5s;
+}
+.card_evaluate .good.on,.card_evaluate .bad.on,.card_evaluate .usually.on{
+    color:#fff;
+}
+
+#underBar{
+    width:100%;
+    height:60px;
+    position:fixed;
+    top:60px;
+    background-color:#f0f0f0;
+    z-index: 10000;
+}
+#underBar #progressBar{
+    width:1000px;
+    height:15px;
+    background: #ffffff;
+    border-radius: 10px;
+    position:absolute;
+    left:50%;
+    margin-left:-500px;
+    top:35px;
+}
+#underBar #barValue{
+    content:"";
+    width:0px;
+    height:15px;
+    background-color: black;
+    border-radius: 10px;
+    position:absolute;
+    left:50%;
+    margin-left:-500px;
+    top:35px;
+    transition: .2s ease-in-out;
+}
+#underBar #cardsSubmit{
+    width:100px;
+    height:30px;
+    background-color:#fff;
+    border:1px solid #fff;
+    border-radius: 25px;
+    position:absolute;
+    left:50%;
+    margin-left:600px;
+    top: 38.5px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    outline:none;
+    cursor:pointer;
+}
+#underBar #cardsSubmit:hover{
+    color:#d58512;
+
+}
+
+#underBar #countItems{
+    width:100px;
+    height:50px;
+    margin:auto;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    position:relative;
+    top:10px;
+}

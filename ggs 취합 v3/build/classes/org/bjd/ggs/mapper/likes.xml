@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="likes">
+	<select id="selectOne"
+resultType="Like"
+ parameterType="Like">
+	SELECT no, MEMBER_NO memberNo,type,postNum 
+	FROM likes
+	WHERE type=#{type}
+	AND MEMBER_NO = #{memberNo}
+	AND postnum = #{postNum}
+</select>
+
+<select id="selectTotal"
+resultType="int" 
+parameterType="Like">
+	SELECT COUNT(*)
+	FROM likes
+	WHERE type=#{type}
+	AND postNum =#{postNum}
+</select>
+
+<insert id="insert" parameterType="Like">
+	INSERT INTO likes(NO,MEMBER_NO,postnum,type)
+	VALUES(likes_seq.nextval,#{memberNo},
+	       #{postNum},#{type})
+</insert>
+
+<delete id="delete" parameterType="Like">
+	DELETE likes
+	WHERE no = #{no}
+</delete>
+</mapper>  
+
+
+
+

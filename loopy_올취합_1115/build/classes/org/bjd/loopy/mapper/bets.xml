@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bets">
+	
+	<select id="selectList"
+			resultType="Bet">
+		SELECT b.no no, b.seq seq, b.regdate regdate,
+		       s.title title, s.mp3_name mp3Name,
+		       s.cover_name coverName, u.nick_ko nickKo
+		FROM bets b, users u, songs s
+		WHERE s.bet_no = b.no AND u.no = s.user_no
+	</select>
+	<select id="seqCount"
+			parameterType="int"
+			resultType="int">
+		SELECT count(*)
+		FROM bets b, songs s
+		WHERE b.no = s.user_no AND s.bet_no = 2
+	</select>
+	
+	
+	
+</mapper>

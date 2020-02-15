@@ -1,0 +1,219 @@
+  @charset "UTF-8";
+        #contentsHeader{
+            width: 1200px;
+            height: 200px;
+            background-color: indianred;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .loopPage{
+            position: absolute;
+            width: 700px;
+            height: 200px;
+            background-color: #311b92;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .loopPage a{
+            display: block;
+            width: 700px;
+            height: 200px;
+        }
+
+        .loopLearning{
+            width: 500px;
+            height: 70px;
+            position: absolute;
+            background-color: darkblue;
+            text-align: center;
+            line-height: 70px;
+            right: 0;
+        }
+
+        .loopLearning a{
+            display: block;
+            width: 500px;
+            height: 70px;
+        }
+
+        .counting{
+            width: 250px;
+            height: 130px;
+            position: absolute;
+            background-color: orangered;
+            text-align: center;
+            line-height: 65px;
+        }
+
+        .counting a{
+            display: block;
+            width: 249px;
+            height: 130px;
+            position: absolute;
+        }
+
+        .countingBox{
+            width: 500px;
+            height: 130px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .participant{
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+            position: absolute;
+            right: 25px;
+            bottom: 20px;
+            text-align: center;
+        }
+
+        .participant .ptcCount{
+            font-size: 48px;
+            color: red;
+            font-weight: bold;
+        }
+
+        .dDay{
+            position: absolute;
+            right: 75px;
+            width: 100px;
+            bottom: 30px;
+            font-size: 48px;
+            color: black;
+        }
+
+        .timer{
+            position:absolute;
+            bottom: 30px;
+            right: 75px;
+            width: 100px;
+            height: 20px;
+            font-size: 20px;
+            color: gray;
+            /*font-weight: bold;*/
+            text-shadow: #424242;
+        }
+
+        .bettingNum{
+            position: absolute;
+            width: 160px;
+            height: 20px;
+            background-color: darkolivegreen;
+            bottom: 110px;
+            right: 170px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .BTUploadCount{
+            right: 250px;
+        }
+
+        .BTDDay{
+            right: 0;
+            border-left: 2px solid #424242;
+        }
+
+        .contentsBox{
+            width: 1200px;
+            min-height: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .contents{
+            width: 1200px;
+            height: 260px;
+            background-color: silver;
+            margin: auto;
+            position: relative;
+            padding-top: 10px;
+            border-bottom: 2px solid #424242;
+        }
+
+        .contentsSongName{
+            position: relative;
+            margin-left: 50px;
+        }
+
+        .contents .mainContentsSong{
+            width: 210px;
+            height: 210px;
+            background-color: black;
+            display: inline-block;
+            margin: 10px 0 0 10px;
+            left: 40px;
+        }
+
+        .contents .first{
+            margin-left: 50px;
+        }
+
+        .slideBox{
+            width: 1090px;
+            height: 210px;
+            margin: 10px 0 0 50px;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgHidden{
+            position: absolute;
+            height: 210px;
+            width: 1030px;
+            margin-left: 20px;
+            overflow: hidden;
+        }
+
+        .songs{
+            position: absolute;
+            height: 210px;
+            transition: 1s ease;
+        }
+
+        .song{
+            float: left;
+            width: 210px;
+            height: 210px;
+            margin-left: 10px;
+            background-color: #311b92;
+        }
+
+        .sContinue{
+            width: 150px;
+            height: 210px;
+            background-color: #311b92;
+            position: absolute;
+            text-align: center;
+            line-height: 210px;
+            font-size: 50px;
+            right: 30px;
+            opacity: 0.7;
+            z-index: 10;
+        }
+
+        .first{
+            margin-left: 50px;
+        }
+
+        .slideBox button{
+            width: 30px;
+            height: 210px;
+            line-height: 210px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .slideBox .leftBtn{
+            left: 0;
+        }
+
+        .slideBox .rightBtn{
+            right: 0;
+        }

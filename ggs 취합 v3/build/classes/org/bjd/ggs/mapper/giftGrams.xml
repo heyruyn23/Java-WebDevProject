@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="giftGrams">
+	<select id="selectList" resultType="GiftGram" parameterType="Number">
+	SELECT no, hit, content, regdate, image , memberNo, r
+	FROM(SELECT t.no,t.hit,t.content,t.regdate, t.image ,memberNo, rownum r
+	FROM(SELECT g.no,g.member_no memberNo,g.hit,g.content,g.regdate, giftImg.image 
+		FROM giftgram g, (SELECT DISTINCT a.giftgram_no giftNo, image
+						  FROM images a, (SELECT giftgram_no giftNum, min(regdate) rr
+										  FROM images
+										  GROUP BY giftgram_no) b
+						  WHERE a.regdate = b.rr AND a.giftgram_no = b.giftNum ) giftImg
+		WHERE g.no = giftImg.giftNo 
+		ORDER BY regdate DESC) t )
+	    <![CDATA[WHERE r >=#{startNumber} AND r <= #{endNumber}]]>  
+	</select>
+	<select id="bestList" resultType="GiftGram">
+		SELECT DISTINCT  g.no,g.member_no memberNo,g.hit,g.content,g.regdate, giftImg.image 
+		FROM giftgram g,
+		(SELECT giftgram_no giftNo, image
+		FROM images a,
+		(SELECT min(regdate) rr
+		FROM images
+		GROUP BY giftgram_no)b 
+		WHERE a.regdate = b.rr)giftImg WHERE g.no = giftImg.giftNo
+		ORDER BY hit DESC
+	</select>
+	
+     	<select id="filterList" resultType="GiftGram" parameterType="Filter">
+		SELECT DISTINCT  g.no,g.member_no memberNo,g.hit,g.content,g.regdate, giftImg.image 
+		FROM giftgram g,
+		(SELECT giftgram_no giftNo, image
+		FROM images a,
+		(SELECT min(regdate) rr
+		FROM images
+		GROUP BY giftgram_no)b 
+		WHERE a.regdate = b.rr)giftImg,
+		(SELECT no,(TO_CHAR(sysdate,'YYYY') - TO_CHAR(birth_date,'YYYY'))+1 as age , sex
+		FROM members )member_birth
+		WHERE member_birth.no = g.member_no AND g.no = giftImg.giftNo
+		<if test="age!=''"> 
+		AND age >=#{age} AND #{endage} >age
+		</if> 
+		<if test="sex!=''">
+		AND sex = #{sex} 
+		</if>
+		ORDER BY no DESC
+	</select>
+	
+	<select id="detailuser" parameterType="int" resultType="Article">
+		
+		SELECT email, hit ,content,b.regdate regDate, postNum
+		FROM members,
+					(SELECT member_no memberNo, hit ,content,regdate, no postNum 
+					FROM giftgram 
+					WHERE no = #{no})b
+					WHERE no = memberNo
+	</select>
+	
+	 <select id="selectImage" parameterType="int" resultType="String">
+		SELECT image
+		FROM images
+		WHERE giftgram_no = #{giftgramNo}
+	</select>
+
+	<select id="selectcomment" parameterType="String" resultType="Comment">
+	SELECT email ,content
+	FROM members,
+	(SELECT content,member_no, regdate 
+	FROM comments
+	WHERE type='G' AND postnum =#{page})b
+	WHERE no = member_no
+	ORDER BY b.regdate DESC
+	</select>
+	
+	<select id="selectlike" parameterType="String" resultType="Like">
+	SELECT a.likenum likeCnt, b.cmt commentCnt
+	FROM (SELECT COUNT(member_no) cmt
+			 FROM comments 
+             WHERE type='G' AND postnum =#{page}) b,
+			(SELECT COUNT (member_no) likenum
+			 FROM likes 
+			 WHERE type='G' AND postnum=#{page})a
+	</select>
+	
+	<select id="findUser" parameterType="int" resultType="int">		
+	SELECT COUNT(*) CNT
+	FROM likes 
+	WHERE member_no = #{no}
+	</select>
+	
+	<insert id="likeInsert" parameterType="GiftGram">
+		INSERT INTO likes (no, member_no, postnum,type)
+		VALUES (likes_seq.nextval, #{memberNo}, #{no},'G')
+	</insert>
+	 
+	<delete id="likeDelete" parameterType="int">
+		DELETE likes
+		WHERE member_no = #{no}
+	</delete>
+	
+	<insert id="cmtInsert" parameterType="Comment">
+		INSERT INTO comments(no, member_no, postnum, content, type, regdate)
+		VALUES (comments_seq.nextval , #{memberNo}, #{postNum} , #{content}, 'G', systimestamp)
+	</insert>
+	
+	<insert id="gramInsert" parameterType="GiftGram">
+		INSERT INTO giftgram(no,member_no,hit,content,regdate)
+		VALUES (giftgram_seq.nextval,#{memberNo},1,#{content},systimestamp)
+	</insert>
+	
+	<select id="findGramNo" parameterType="GiftGram" resultType="int">
+		SELECT no
+		FROM giftgram
+		WHERE content LIKE #{content} AND member_no = #{memberNo} AND regdate = (SELECT MAX(regdate)
+																   FROM giftgram 
+																   WHERE content LIKE #{content} AND member_no = #{memberNo})
+		
+	</select>
+	
+	<insert id="imageInsert" parameterType="Image">
+		INSERT INTO images(no,giftgram_no, image,regdate)
+		VALUES (images_seq.nextval, #{giftGramNo}, #{image}, systimestamp)
+	</insert>
+	
+	<update id="hitUpdate" parameterType="int">
+		UPDATE giftgram
+		SET hit = hit+1
+		WHERE no = #{no}
+	</update>
+	
+</mapper>  
+
+
+
+

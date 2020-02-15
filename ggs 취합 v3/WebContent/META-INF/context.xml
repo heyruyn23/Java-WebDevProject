@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/ggs____v3">
+  <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="20" maxTotal="20" maxWaitMillis="-1" name="oraclexe" password="1111" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="ggs"/>
+  <!--
+		 ConnectionPool ? ??
+		 ????? DataSource??? ??
+		 maxIdle : ???? ??(??)??
+		 maxActive : ???? ????
+		 maxWait : ?? ???? ??(-1?? ???)
+	 -->
+</Context>

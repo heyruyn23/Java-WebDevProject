@@ -1,0 +1,248 @@
+@charset="UTF-8";
+
+        .songListWrap {
+            width: 1200px;
+            position: relative;
+            margin: 5px auto;
+        }
+
+        .rankingHeader{
+            width: 1200px;
+            height: 60px;
+            position: relative;
+            display: inline-block;
+        }
+        .rankingHeader ul{
+            width: 800px;
+            float: left;
+        }
+
+
+        .rankingTap select{
+            width: 100px;
+            height: 40px;
+            background-color: gray;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            border-radius: 10px;
+            margin: 0 0 5px 10px;
+        }
+
+        .rankingTap li{
+            display: inline-block;
+            position: relative;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .rankingTap li>a{
+            margin-left: 15px;
+            display: block;
+            width: 80px;
+            height: 40px;
+            background-color: gray;
+            text-align: center;
+            line-height: 40px;
+            transition: 1s ease;
+            font-size: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .rankingTap li>a:hover{
+            color: #311b92;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .rankingHeader .rankingMusicPlay{
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            position:absolute;
+            right: 0;
+            margin-top: 10px;
+            float: right;
+            border-radius: 10px;
+        }
+        .rankingIndex{
+            position: relative;
+            width: 1200px;
+            min-height: 30px;
+            background-color: darkslategray;
+        }
+
+        .rankingIndex ul li{
+            display: inline-block;
+            background-color: darkslategray;
+            margin-bottom: 10px;
+            position: absolute;
+            text-align: center;
+            margin-top: 7px;
+        }
+
+        .rankingIndex li:nth-child(1){
+            width: 90px;
+            height: 15px;
+            right: 410px;
+        }
+
+        .rankingIndex li:nth-child(2){
+            width: 70px;
+            height: 15px;
+            right: 340px;
+        }
+
+        .rankingIndex li:nth-child(3){
+            width: 100px;
+            height: 15px;
+            right: 240px;
+        }
+
+        .rankingIndex li:nth-child(4){
+            width: 100px;
+            height: 15px;
+            right: 140px;
+        }
+
+        .rankingIndex li:nth-child(5){
+            width: 140px;
+            height: 15px;
+            right: 0;
+        }
+
+        .rankingContents .dateTab li{
+            width: 1200px;
+            height: 60px;
+            position: relative;
+            padding: 10px 0;
+            border-top: 3px solid #424242;
+            border-bottom: 3px solid #424242;
+        }
+
+
+        /*밑으로 보내기*/
+        .rankingContents .dateTab{
+            position: absolute;
+            display: none;
+        }
+
+        .rankingContents .touch{
+            display: block;
+        }
+        /*밑으로 보내기*/
+
+        .rankingContents .dateTab{
+            position: relative;
+        }
+
+        .rankingContents .dateTab li div{
+            display: inline-block;
+            float: left;
+            position: absolute;
+            margin:auto;
+        }
+
+        .rankingContents .dateTab li .rankingNo{
+            width: 30px;
+            height: 60px;
+            line-height: 60px;
+            left: 0;
+        }
+
+        .rankingContents .dateTab li .rankingSongCover{
+            width: 80px;
+            height: 60px;
+            left: 30px;
+            color: red;
+            text-align: center;
+        }
+
+        .rankingContents .dateTab li .rankingNickName{
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            left: 110px;
+        }
+
+        .rankingContents .dateTab li .rankingSongName{
+            width: 195px;
+            height: 30px;
+            line-height: 30px;
+            left: 260px;
+            color: black;
+        }
+
+        .rankingContents .dateTab li .rankingAlbumName{
+            width: 245px;
+            height: 30px;
+            line-height: 30px;
+            left: 455px;
+        }
+
+        .rankingContents .dateTab li .rankingPlayCount{
+            width: 90px;
+            height: 30px;
+            line-height: 30px;
+            left: 700px;
+        }
+
+        .rankingContents .dateTab li .rankingLike{
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            left: 790px;
+        }
+
+        .rankingContents .dateTab li .rankingProfGrading{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            left: 860px;
+            text-align: center;
+        }
+
+        .rankingContents .dateTab li .rankingUserGrading{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            left: 960px;
+            text-align: center;
+        }
+
+        .rankingContents .dateTab li .rankingUploadDate{
+            width: 140px;
+            height: 30px;
+            line-height: 30px;
+            left: 1060px;
+            text-align: center;
+        }
+
+        .rankingContents .dateTab li .tag{
+            width: 590px;
+            height: 30px;
+            line-height: 30px;
+            left: 110px;
+            top: 40px;
+        }
+
+        .rankingContents .dateTab li .rankingPutInPlayer{
+            width: 140px;
+            height: 30px;
+            line-height: 30px;
+            left: 850px;
+            top: 40px;
+        }
+
+        .rankingContents .dateTab li .rankingPutInCollection{
+            width: 140px;
+            height: 30px;
+            line-height: 30px;
+            left: 1000px;
+            top: 40px;
+        }
+
+
+

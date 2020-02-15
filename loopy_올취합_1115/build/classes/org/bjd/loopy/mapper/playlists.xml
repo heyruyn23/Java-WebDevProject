@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="playlists">
+	
+	<select id="selectAlbums" parameterType="int" resultType="Playlist">
+		SELECT DISTINCT p.no, p.name, j.wholeNum wholeNum, j.wholeDur wholeDuration
+		FROM PLAYLISTS p, USERS u, BLK_Playlist b,
+			(SELECT playlist_no, COUNT(idx) wholeNum, SUM(s.duration) wholeDur
+			 FROM BLK_PLAYLIST b, SONGS s
+			 WHERE b.song_no = s.no
+			 GROUP BY b.playlist_no
+			 ORDER BY 1 DESC) j
+		WHERE user_no = 1 AND ac_type = 'album'
+		AND p.user_no = u.no AND p.no = b.playlist_no AND p.no = j.playlist_no
+		ORDER BY 1 DESC
+	</select>
+	<select id="selectArtList" parameterType="PageVO" resultType="Playlist">
+SELECT no,nickKo, userNo, name,regdate
+FROM(SELECT no,nickKo, userNo, name,regdate,rownum r
+		FROM(SELECT p.no,nick_ko nickKo, user_no userNo, p.name,p.regdate
+			FROM playlists p, users u
+			WHERE p.user_no = u.no 
+			AND P.ac_type =#{type}
+			ORDER BY 1 DESC))
+WHERE r BETWEEN #{start} AND #{end}
+</select>
+
+<select id="selectMyList"  resultType="Playlist" parameterType="Playlist">
+SELECT p.no,nick_ko nickKo,nick_En nickEn, user_no userNo, p.name,p.regdate
+FROM playlists p, users u
+WHERE p.user_no = u.no 
+AND p.ac_type =#{acType}
+AND user_no = #{userNo}
+</select>
+
+<select id="selectTotal" parameterType="String" resultType="int">
+	SELECT COUNT(*)
+	FROM playlists
+	WHERE ac_type=#{type}
+</select>
+
+
+
+<select id="selectPlaylist" parameterType="int" resultType="Playlist">
+SELECT p.no,p.name,u.nick_ko nickKo,p.played_time playTime,p.ac_type acType,p.cover_name coverName,p.content,p.regdate
+FROM playlists p,users u
+WHERE p.user_no = u.no AND p.no = #{no}
+</select>	
+
+
+<select id="selectName"
+	resultType="int"
+	parameterType="string">
+		SELECT COUNT(*)
+		FROM playlists
+		WHERE name = #{name}
+</select>
+
+
+<insert id="insert" parameterType="Playlist">
+<selectKey keyProperty="no" order="BEFORE" resultType="int">
+	SELECT PLAYLISTS_SEQ.NEXTVAL
+	FROM dual
+</selectKey>
+INSERT INTO PLAYLISTS(NO,USER_NO,NAME,PLAYED_TIME,AC_TYPE,COVER_NAME,CONTENT,REGDATE)
+VALUES(#{no},#{userNo},#{name},0,#{acType},'default.png',#{defaultMsg},systimestamp)
+</insert>
+</mapper>

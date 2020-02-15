@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emotions">
+	
+	<select id="selectTodayEmotion" parameterType="int" resultType="Emotion">
+		SELECT no, user_no userNo, emo_name emoName, regdate
+		FROM (SELECT e.* FROM emotions e ORDER BY regdate DESC)
+		WHERE ROWNUM=1 AND user_no=#{userNo}
+	</select>
+	
+	<insert id="insertEmotion" parameterType="int">
+		INSERT INTO emotions(no, user_no, emo_name, regdate)
+		VALUES(emotions_seq.nextval,#{userNo},'o',systimestamp)
+	</insert>
+	
+</mapper>

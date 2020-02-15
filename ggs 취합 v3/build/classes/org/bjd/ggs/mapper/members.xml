@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="members">
+
+		<select id="selectLogin"
+	resultType="Member"
+	parameterType="Member">
+		SELECT no, email, password, sex, birth_date birthDate, regDate
+		FROM members
+		WHERE email = #{email} AND password = #{password} 
+	</select>
+	
+	<insert id="insert" parameterType="Member">
+		INSERT INTO members(no,	email, password, sex, birth_date, regdate)
+		VALUES(members_seq.nextval, #{email}, #{password}, #{sex}, #{birthDate}, systimestamp)
+	</insert>
+	
+	<select id="selectCheckEmail" resultType="int" parameterType="string">
+		SELECT COUNT(*)
+		FROM members
+		WHERE email = #{email}
+	</select>
+	
+	
+	
+	<select id="selectWinner"
+			resultType="Member"
+			parameterType="int">
+			SELECT m.email email
+			FROM winners w, members m
+			WHERE w.event_no = #{no} AND m.no = w.member_no 
+	</select>
+	
+	<select id="selectWinTotal"
+			resultType="int"
+			parameterType="int">
+			SELECT COUNT(m.email)
+			FROM winners w, members m
+			WHERE w.event_no = #{no} AND m.no = w.member_no
+	</select>
+	
+</mapper>  
+
+
+
+

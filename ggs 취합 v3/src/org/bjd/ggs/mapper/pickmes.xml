@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pickmes">
+	<insert id="insertItem" parameterType="Pickme">
+		INSERT INTO pickme(no,member_no,item_no,regdate,rank)
+		VALUES(pickme_seq.nextval,#{memberNo},#{itemNo},systimestamp,#{rank})
+	</insert>
+	
+	<delete id="deleteItem" parameterType="Pickme">
+		delete from pickme
+		where item_no = #{itemNo} AND member_no = #{memberNo}
+	</delete>
+	
+	<update id="updateItem" parameterType="Pickme">
+		UPDATE pickme
+		SET rank = #{rank}
+		WHERE member_no = #{memberNo} AND item_no = #{itemNo}
+	</update>
+</mapper>  
+
+
+
+

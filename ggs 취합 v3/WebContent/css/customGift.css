@@ -1,0 +1,292 @@
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: #f9f9f9;
+}
+
+#customHeroImg{
+    width: 100%;
+    height: 300px;
+    background-image: url(img/customBack.jpg);
+    background-size: cover;
+    position: relative;
+}
+#customHeroText{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+}
+
+#customHeroText>#customHeroTitle{
+    font-size: 40px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+
+}
+.custom_hero_text{
+    color: white;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.custom_wrap{
+    width: 1200px;
+    min-height:650px;
+    padding: 20px;
+    /*background: indianred;*/
+    margin: auto;
+    background-color: #f9f9f9;
+}
+
+.custom_form{
+    width: 650px;
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 40px;
+    border: 1px solid #e6e8f0;
+    border-radius: 5px;
+    height: 550px;
+    float: left;
+    margin-bottom: 20px;
+
+}
+#customGiftResultBox{
+    width: 1000px;
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 40px;
+    border: 1px solid #e6e8f0;
+    border-radius: 5px;
+    min-height: 550px;
+    margin-bottom: 20px;
+    top:10px;
+    left: 80px;
+    padding-top: 80px;
+    padding-left: 55px;
+    display: none;
+}
+#customGiftTitle{
+    width: 800px;
+    height: 40px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+
+    font-size: 25px;
+
+}
+
+#customGiftTitle>h1>i{
+    color: indianred;
+}
+.custom_gift{
+    float: left;
+    width: 250px;
+    height: 350px;
+    margin-top: 50px;
+    margin-left: 50px;
+
+}
+.custom_gift_img{
+    width: 200px;
+    height: 200px;
+    background-color: #f6ecce;
+    margin-left: 25px;
+    border-radius: 250px;
+
+    border: 1px solid #e6e8f0;
+}
+
+.custom_gift_image{
+
+    border-radius: 250px;
+}
+.custom_gift_text{
+    margin-top: 20px;
+    width: 250px;
+    height: 50px;
+    background-color: indianred;
+    color: #f9f9f9;
+    font-size: 14px;
+    font-family: 'Nanum Gothic', sans-serif;
+    text-align: center;
+    font-weight: 300;
+    line-height: 25px;
+    border-radius: 5px;
+
+}
+.custom_form#customFormGender{
+    height: 400px;
+}
+.custom_form#customFormAge{
+
+    display: none;
+}
+.custom_form#customFormRelation{
+    display: none;
+}
+.custom_form#customFormReason{
+    display: none;
+}
+
+.custom_progress{
+    height: 10px;
+    border-radius: 5px;
+    background-color: #e6e8f0;
+    box-shadow: none;
+    margin: 20px 0 0;
+}
+.custom_question{
+    height: 100px;
+    line-height: 100px;
+    font-size: 25px;
+    /*background-color: #463a84;*/
+    /*margin: 0 0 64px;*/
+    font-weight: normal;
+}
+.custom_answer_form{
+
+    border: 1px solid #e6e8f0;
+    border-radius: 5px;
+}
+.custom_answer_list{
+    border-bottom: 1px solid #e6e8f0;
+
+
+}
+.custom_answer_list:last-child{
+    border-bottom: none;
+}
+li.custom_answer_list input{
+    visibility: hidden;
+}
+
+.custom_answer_box{
+    height: 60px;
+    /*background-color: aquamarine;*/
+    position: relative;
+
+}
+.custom_checkbox{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #e6e8f0;
+    border-radius: 3px;
+    display: inline-block;
+    position: absolute;
+    top:20px;
+    left:20px;
+
+}
+.custom_checkbox_text{
+
+    height: 20px;
+    font-size: 16px;
+    display: inline-block;
+    position: absolute;
+    left: 60px;
+    top:22px;
+}
+.custom_msg{
+    width: 150px;
+    background-color: #f9f9f9;
+    color: #f9f9f9;
+    font-size: 14px;
+    border: none;
+    position: absolute;
+    bottom: 75px;
+    right: 40px;
+    text-align: right;
+
+}
+.custom_btn_next{
+    width: 130px;
+    background-color: indianred;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.custom_checkbox_checked{
+    background-color: indianred;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #e6e8f0;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 20px;
+
+    position: absolute;
+    top:-1px;
+    left:-1px;
+    display: none;
+}
+.custom_explain_box{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background-color: #f9f9f9;
+    display: inline-block;
+    float: right;
+}
+#customExplainImg{
+    position: absolute;
+    top:20px;
+    left:75px;
+}
+.custom_explain_text{
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    left:75px;
+    font-size: 20px;
+    text-align: center;
+
+    font-family: 'Ubuntu', sans-serif;
+}
+#customExplainPercent{
+    top:350px;
+    font-size: 25px;
+}
+#customExplainText{
+    top:380px;
+}
+.custom_plus_box{
+    width: 1000px;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    bottom: 60px;
+}
+#customPlusText{
+    width: 130px;
+    height: 40px;
+    background-color: rgba(187,187,187,0.1);
+
+    left: 550px;
+    bottom: 25px;
+    line-height: 40px;
+    font-size: 12px;
+
+    border-radius: 10px;
+    display: none;
+}
+#customPlusBtn{
+
+    width: 150px;
+    height: 30px;
+    border: none;
+    font-size: 14px;
+    border: 1px solid #e6e8f0;
+    background-color: #f9f9f9;
+    color: indianred;
+    cursor: pointer;
+}

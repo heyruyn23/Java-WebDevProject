@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="texts">
+	
+	<insert id="insert" parameterType="Text">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int">
+			SELECT texts_seq.nextval
+			FROM dual
+		</selectKey>
+		{call
+			declare
+			begin
+				INSERT INTO TEXTS(no, user_no, title, text, hit, ref, board, regdate)
+				VALUES(#{no}, #{userNo}, #{title}, #{text}, 0, #{ref}, #{board}, SYSTIMESTAMP);
+				INSERT INTO EXPS(no, user_no, exp_type, exps, regdate)
+				VALUES(exps_seq.nextval, #{userNo}, '글 작성', 5, SYSTIMESTAMP);
+			end
+		}
+	</insert>
+	<select id="selectTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+	</select>
+	
+	<select id="selectFTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+		WHERE board = 'free'
+	</select>
+	
+	<select id="selectLTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+		WHERE board= 'lecture'
+	</select>
+	
+	<select id="selectPTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+		WHERE board= 'pr'
+	</select>
+	
+	<select id="selectITotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+		WHERE board= 'inform'
+	</select>
+	
+	<select id="selectQTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+		WHERE board= 'query'
+	</select>	
+	
+	<select id="selectRTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM texts
+		WHERE board= 'review'
+	</select>
+		
+	<select id="selectList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectFList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no AND t.board = 'free'
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectLList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no AND t.board= 'lecture'
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectPList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no AND t.board= 'pr'
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectIList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no AND t.board= 'inform'
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectQList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no AND t.board= 'query'
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectRList" 
+	resultType="Text"
+	parameterType="PageVO">
+	SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo
+		FROM(SELECT textNo, textTitle, textHit, textReg, likeNum, profile, nickKo, rownum r
+			FROM (SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+				  		FROM texts t, users u, (SELECT target_no targetNo, COUNT(*) likeNum
+				   								FROM likes
+												WHERE like_type='w'
+												GROUP BY target_no) l 
+					    WHERE t.no = l.targetNo(+) AND t.user_no = u.no AND t.board= 'review'
+					    ORDER BY t.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectListBV"
+		resultType="Text">
+		<![CDATA[
+		SELECT textNo, textTitle, nickKo, textReg, textHit, likeNum, rownum r
+			FROM(SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+	 			FROM texts t, users u, (SELECT target_no targetNo, count(*) likeNum
+										FROM likes
+										WHERE like_type = 'w'
+										GROUP BY target_no) l
+				 WHERE t.user_no = u.no AND l.targetNo(+) = t. no
+				 ORDER BY t.hit DESC)
+			WHERE rownum <= 5
+			]]>
+	</select>
+	
+	<select id="selectListBL"
+			resultType="Text">
+		<![CDATA[
+			SELECT textNo, textTitle, nickKo, textReg, textHit, likeNum, rownum r
+			FROM(SELECT t.no textNo, t.user_no, t.title textTitle, t.text, t.hit textHit, t.ref, t.board, t.regdate textReg,
+						u.no, u.email, u.password, u.nick_ko nickKo, u.nick_en, u.profile, u.cover_art, u.info, u.verification,
+						u.regdate, targetNo, likeNum
+	 			FROM texts t, users u, (SELECT target_no targetNo, count(*) likeNum
+										FROM likes
+										WHERE like_type = 'w'
+										GROUP BY target_no) l
+				WHERE t.user_no = u.no AND l.targetNo = t. no
+				ORDER BY likeNum DESC)
+			WHERE rownum <= 5
+			]]>
+	</select>
+	
+	<select id = "selectOne" parameterType = "int"
+	resultType="Text">
+	SELECT u.nick_ko nickKo, t.title title, t.regdate regdate, t.text text, t.hit hit, l.likeCount likeCount, rc.replyCount replyCount
+	FROM users u, texts t, (SELECT target_no, count(*) likeCount
+							FROM likes
+							WHERE like_type = 'w'
+							GROUP BY TARGET_NO) l,
+							(SELECT text_no, COUNT(*) replyCount
+							FROM replies_texts
+							GROUP BY Text_no) rc
+	WHERE u.no = t.user_no AND l.target_no(+) = t.no AND rc.text_no(+) = t.no AND t.no = #{no}
+	</select>
+	
+	<update id="updateHit" parameterType="int">
+		UPDATE texts 
+		SET hit = hit+1
+		WHERE no = #{no}
+	</update>
+</mapper>

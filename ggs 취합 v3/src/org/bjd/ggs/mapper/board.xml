@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<select id="selectFree" resultType="Article" parameterType="Article">
+		select no, member_no memberNo, title, hit, regdate
+		from BOARD
+	</select>
+	<select id="selectSanta" resultType="Article" parameterType="Article">
+		select no, member_no memberNo, title, hit, regdate
+		from BOARD
+	</select>
+	<select id="selectList" resultType="Article"
+		parameterType="PageVO">
+SELECT no, title, content, regdate, hit, memberNo, email, type,
+		likesNum, commentsNum
+		FROM(SELECT no, title, content, regdate, hit, memberNo,email, type,
+		likesNum, commentsNum, rownum r
+		FROM (SELECT b.no no,
+		b.title title,
+		b.content content,
+		b.regdate regdate,
+		b.hit hit,b.type type,
+		m.no memberNo,
+		l.count
+		likesNum,email,
+		c.count commentsNum
+		FROM board b, members m,
+		(SELECT postNum,COUNT(*) count
+		FROM likes
+		WHERE type='F'
+		GROUP BY postNum) l,
+		(SELECT postNum,COUNT(*) count
+		FROM comments WHERE type='F'
+		GROUP BY postNum)
+		c
+		WHERE b.member_no = m.no
+		AND b.no = l.postNum(+)
+		AND b.no = c.postNum(+)
+		AND type='F'
+		<if test="select!=null and select.equals('title')">
+		AND title Like #{wire}
+		</if>
+		<if test="select!=null and select.equals('content')">
+		 	AND content Like #{wire}
+		</if>
+		<if test="select!=null and select.equals('writer')">
+		 	AND email Like #{wire}
+		</if>
+		 ORDER BY ${order} DESC nulls last))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	<select id="selectListSanta" resultType="Article"
+		parameterType="PageVOS">
+SELECT no, title, content, regdate, hit, memberNo, email, type,
+		likesNum, commentsNum
+		FROM(SELECT no, title, content, regdate, hit, memberNo,email, type,
+		likesNum, commentsNum, rownum r
+		FROM (SELECT b.no no,
+		b.title title,
+		b.content content,
+		b.regdate regdate,
+		b.hit hit,b.type type,
+		m.no memberNo,
+		l.count
+		likesNum,email,
+		c.count commentsNum
+		FROM board b, members m,
+		(SELECT postNum,COUNT(*) count
+		FROM likes
+		WHERE type='S'
+		GROUP BY postNum) l,
+		(SELECT postNum,COUNT(*) count
+		FROM comments WHERE type='S'
+		GROUP BY postNum)
+		c
+		WHERE b.member_no = m.no
+		AND b.no = l.postNum(+)
+		AND b.no = c.postNum(+)
+		AND type='S'		
+		<if test="select!=null and select.equals('title')">
+		AND title Like #{wire}
+		</if>
+		<if test="select!=null and select.equals('content')">
+		 	AND content Like #{wire}
+		</if>
+		<if test="select!=null and select.equals('writer')">
+		 	AND email Like #{wire}
+		</if>
+		 ORDER BY ${order} DESC nulls last))
+		WHERE r BETWEEN #{start} AND #{end}
+
+	</select>
+		<select id="selectTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM board 
+		WHERE type='F'
+	</select>
+	<select id="selectTotalS" resultType="int">
+		SELECT COUNT(*)
+		FROM board
+		WHERE type='S'
+	</select>
+	<select id="selectOne" parameterType="int"
+resultType="Article">
+	SELECT b.no no,b.title title,b.content content, likesNum,
+	       b.hit hit,b.regdate regdate, m.no memberNo,email
+	FROM board b, members m,
+	(SELECT postNum,COUNT(*) likesNum
+		FROM likes
+		WHERE type='F'
+		GROUP BY postNum) l 
+	WHERE b.member_no = m.no
+	AND b.no = l.postNum(+)
+	AND b.no = #{no}
+</select>
+<select id="selectOneSanta" parameterType="int"
+resultType="Article">
+	SELECT b.no no,b.title title,b.content content, likesNum,
+	       b.hit hit,b.regdate regdate, m.no memberNo,email
+	FROM board b, members m,
+	(SELECT postNum,COUNT(*) likesNum
+		FROM likes
+		WHERE type='S'
+		GROUP BY postNum) l 
+	WHERE b.member_no = m.no
+	AND b.no = l.postNum(+)
+	AND b.no = #{no}
+</select>
+<insert id="insert" parameterType="Article">
+	<selectKey order="BEFORE"
+	 keyProperty="no" resultType="int">
+		SELECT board_seq.nextval
+		FROM dual
+	</selectKey>
+	INSERT INTO board(NO,MEMBER_NO,TITLE,
+	                CONTENT,TYPE,HIT,FILENAME,REGDATE)
+	VALUES(#{no},#{memberNo},#{title},
+	       #{content},'F',0,'',systimestamp)
+</insert>
+<insert id="insertSanta" parameterType="Article">
+	<selectKey order="BEFORE"
+	 keyProperty="no" resultType="int">
+		SELECT board_seq.nextval
+		FROM dual
+	</selectKey>
+	INSERT INTO board(NO,MEMBER_NO,TITLE,
+	                CONTENT,TYPE,HIT,FILENAME,REGDATE)
+	VALUES(#{no},#{memberNo},#{title},
+	       #{content},'S',0,'',systimestamp)
+</insert>
+<update id="updateHit" parameterType="int">
+	UPDATE board 
+	SET hit = hit+1
+	WHERE no = #{no}
+</update>
+</mapper>  
+
+
+
+

@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/*
+	Global IT HumanResource Development
+	BJD(Big-data Java Developers)
+	new YOPK();
+	Loopy
+	20180918
+	License: none (institution)
+*/
+html {
+    overflow-y: scroll;
+}
+body {
+	background-color: #121212;
+    color: #fff;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+button {
+    color: #fff;
+    border: none;
+    background-color: #383838;
+}
+a {
+	text-decoration: none;
+}
+a:link {
+	color:#fff;
+}
+a:visited {
+	color:#fff;
+}
+
+/*
+   주색 : #121212
+   보조색 : #383838
+   보조색 : #311b92
+*/

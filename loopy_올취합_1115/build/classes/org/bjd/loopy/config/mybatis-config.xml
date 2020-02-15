@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="org.bjd.loopy.vo.Bet" alias="Bet"/>
+		<typeAlias type="org.bjd.loopy.vo.BLKBet" alias="BLKBet"/>
+		<typeAlias type="org.bjd.loopy.vo.BLKFile" alias="BLKFile"/>
+		<typeAlias type="org.bjd.loopy.vo.BLKPlaylist" alias="BLKPlaylist"/>
+		<typeAlias type="org.bjd.loopy.vo.BLKSource" alias="BLKSource"/>
+		<typeAlias type="org.bjd.loopy.vo.BLKTag" alias="BLKTag"/>
+		<typeAlias type="org.bjd.loopy.vo.Bookmark" alias="Bookmark"/>
+		<typeAlias type="org.bjd.loopy.vo.Decibel" alias="Decibel"/>
+		<typeAlias type="org.bjd.loopy.vo.Emotion" alias="Emotion"/>
+		<typeAlias type="org.bjd.loopy.vo.Exp" alias="Exp"/>
+		<typeAlias type="org.bjd.loopy.vo.Folder" alias="Folder"/>
+		<typeAlias type="org.bjd.loopy.vo.Level" alias="Level"/>
+		<typeAlias type="org.bjd.loopy.vo.Like" alias="Like"/>
+		<typeAlias type="org.bjd.loopy.vo.Message" alias="Message"/>
+		<typeAlias type="org.bjd.loopy.vo.Playlist" alias="Playlist"/>
+		<typeAlias type="org.bjd.loopy.vo.NormalRate" alias="NormalRate"/>
+		<typeAlias type="org.bjd.loopy.vo.Rank" alias="Rank"/>
+		<typeAlias type="org.bjd.loopy.vo.RankPoint" alias="RankPoint"/>
+		<typeAlias type="org.bjd.loopy.vo.ReplyAlbum" alias="ReplyAlbum"/>
+		<typeAlias type="org.bjd.loopy.vo.ReplySong" alias="ReplySong"/>
+		<typeAlias type="org.bjd.loopy.vo.ReplyText" alias="ReplyText"/>
+		<typeAlias type="org.bjd.loopy.vo.Report" alias="Report"/>
+		<typeAlias type="org.bjd.loopy.vo.Song" alias="Song"/>
+		<typeAlias type="org.bjd.loopy.vo.Source" alias="Source"/>
+		<typeAlias type="org.bjd.loopy.vo.SpecialRate" alias="SpecialRate"/>
+		<typeAlias type="org.bjd.loopy.vo.Tag" alias="Tag"/>
+		<typeAlias type="org.bjd.loopy.vo.Text" alias="Text"/>
+		<typeAlias type="org.bjd.loopy.vo.User" alias="User"/>
+		<typeAlias type="org.bjd.loopy.vo.UserMGMT" alias="UserMGMT"/>
+		<typeAlias type="org.bjd.loopy.vo.PageVO" alias="PageVO"/>
+	</typeAliases>
+
+	<environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="JNDI">
+      	<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers>
+  	<mapper resource="org/bjd/loopy/mapper/bets.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/BLKBet.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/BLKFile.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/BLKPlaylists.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/BLKSources.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/BLKTag.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/bookmarks.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/dbs.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/emotions.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/exps.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/folders.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/levels.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/likes.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/messages.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/normalRates.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/playlists.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/ranks.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/repliesAlbums.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/repliesSongs.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/repliesTexts.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/reports.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/rps.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/songs.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/sources.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/specialRates.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/tags.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/texts.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/userMGMT.xml"/>
+  	<mapper resource="org/bjd/loopy/mapper/users.xml"/>
+  	
+  </mappers>
+</configuration>

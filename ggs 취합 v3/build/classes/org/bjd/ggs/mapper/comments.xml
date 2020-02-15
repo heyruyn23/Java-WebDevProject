@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comments">
+	<select id="selectTotal"
+	parameterType="int"
+	resultType="int">
+		SELECT COUNT(*)
+		FROM comments
+		WHERE postnum = #{postNum} and type='F'
+	</select>
+	
+	<select id="selectTotalS"
+	parameterType="int"
+	resultType="int">
+		SELECT COUNT(*)
+		FROM comments
+		WHERE postnum = #{postNum} and type='S'
+	</select>
+	
+	<select id="selectList" 
+	resultType="Comment"
+	parameterType="PageVO"> 
+SELECT no, memberNo, postNum, content, regdate, email
+		FROM(SELECT no, memberNo, postNum, content, regdate, email, rownum r
+		FROM(SELECT c.no no, m.no memberNo, c.postNum postNum, c.content content, c.regdate regdate, email
+		FROM comments c, members m
+		WHERE c.member_no = m.no
+		AND c.postNum = #{postNum} AND type='F'
+		ORDER BY c.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+		<select id="selectListS" 
+	resultType="Comment"
+	parameterType="PageVO"> 
+SELECT no, memberNo, postNum, content, regdate, email
+		FROM(SELECT no, memberNo, postNum, content, regdate, email, rownum r
+		FROM(SELECT c.no no, m.no memberNo, c.postNum postNum, c.content content, c.regdate regdate, email
+		FROM comments c, members m
+		WHERE c.member_no = m.no
+		AND c.postNum = #{postNum} AND type='S'
+		ORDER BY c.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<insert id="insert" parameterType="Comment">
+		INSERT INTO comments(no,MEMBER_NO,POSTNUM
+		                    ,CONTENT,TYPE,REGDATE)
+		VALUES(comments_seq.nextval,#{memberNo},
+		       #{postNum},#{content},'F',systimestamp)
+	</insert>
+	<insert id="insertSanta" parameterType="Comment">
+		INSERT INTO comments(no,MEMBER_NO,POSTNUM
+		                    ,CONTENT,TYPE,REGDATE)
+		VALUES(comments_seq.nextval,#{memberNo},
+		       #{postNum},#{content},'S',systimestamp)
+	</insert>
+	
+	
+	
+	<insert id="insertE" parameterType="Comment">
+		INSERT INTO comments(no,MEMBER_NO,POSTNUM
+		                    ,CONTENT,TYPE,REGDATE)
+		VALUES(comments_seq.nextval,#{memberNo},
+		       #{postNum},#{content},'E',systimestamp)
+	</insert>
+
+	<select id="selectListEC"
+			resultType="Comment"
+			parameterType="PageVO">
+		SELECT	no, memberNo, postNum, content, regDate, email
+		FROM(SELECT no, memberNo, postNum, content, regDate, email, rownum r
+			FROM(SELECT c.no no, m.no memberNo, c.postnum postNum,
+						c.content content, c.regdate regDate, m.email email
+				FROM comments c, members m
+				WHERE c.member_no = m.no AND c.type = 'E' AND c.postnum = #{postNum}
+				ORDER BY c.no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectTotalEC"
+			resultType="int"
+			parameterType="int">
+		SELECT COUNT(*)
+		FROM comments
+		WHERE postnum = #{int} AND type= 'E'
+	</select>
+	
+</mapper>  
+
+
+
+

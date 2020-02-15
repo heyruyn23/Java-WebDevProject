@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="songs">
+	
+	<select id="selectListTest" resultType="Song">
+		SELECT s.no, u.nick_Ko nickKo, title, cover_name coverName
+		FROM SONGS s, USERS u
+		WHERE s.user_no = u.no
+		ORDER BY 1 ASC
+	</select>
+	
+	<select id="selectList" resultType="Song" parameterType="String">
+		SELECT s.no, s.title, u.nick_ko nickKo, s.mp3_name mp3Name, s.cover_name coverName, u.profile, c.name album, duration
+		FROM SONGS s, USERS u, (SELECT name, song_no
+								FROM BLK_PLAYLIST b, PLAYLISTS p
+								WHERE b.playlist_no = p.no AND p.ac_type='album') c
+		WHERE s.user_no = u.no AND s.no = c.song_no(+)
+		AND s.no IN (${_parameter})
+		ORDER BY 1 ASC
+	</select>
+	<select id="selectSong" parameterType="int" resultType="Song">
+	
+		SELECT s.no, s.user_no userNo, s.bet_no betNo, s.title, s.info,
+		s.mp3_name mp3Name, s.hit, s.cover_name coverName, 
+		s.pub_veri pubVeri, s.com_veri comVeri,
+		s.stat_veri statVeri, s.genre, s.regdate, s.duration,
+		u.nick_en nickEn, u.nick_ko nickKo, u.profile profile
+		FROM songs s, users u
+		WHERE s.user_no=u.no AND s.no=#{no}
+	
+	</select>
+	
+	<select id="selectSongCnt" parameterType="int" resultType="int">
+		SELECT COUNT(*) songCnt
+		FROM songs
+		WHERE user_no=1
+	</select>
+	
+	<select id="selectSongList" resultType="Song" parameterType="int">
+	SELECT s.cover_name coverName,s.title,u.nick_ko nickKo,u.nick_En nickEn,p.ac_type
+		FROM blk_playlist bp,songs s,playlists p,users u
+		WHERE bp.song_no = s.no 
+		AND bp.playlist_no = p.no
+		AND s.user_no = u.no
+  		AND p.no = #{no}
+</select>
+</mapper>

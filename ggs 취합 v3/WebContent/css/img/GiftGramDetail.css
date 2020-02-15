@@ -1,0 +1,227 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+main{
+    width: 100%;
+    min-height: calc(100vh - 68px);
+    background: #F7F7F7;
+    height: 100%;
+    position: relative;
+}
+#detailWrap{
+    width: 50vw;
+    min-height: calc(85vh - 100px);
+    position: absolute;
+    top:calc(2vh + 50px);
+    left: 25%;
+    border-bottom: 2px solid rgba(0,0,0,.0975);
+    margin:auto
+
+}
+#detailBox {
+    height: 100%;
+    width: 30vw;
+    background-color: #fff;
+    position: absolute;
+    box-shadow: 1px 1px 1px #424242;
+}
+#detailImgBox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding: 0;
+    float: left;
+}
+#imgWrap{
+    position: absolute;
+    width: 30vw;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    background-color: red;
+}
+#imgBox{
+    position: absolute;
+    left: 0;
+    min-width: 120vw;
+    height: 100%;
+    list-style: none;
+    object-fit: cover;
+    transition: ease .2s;
+}
+#imgBox li{
+    width: 30vw;
+    height: 100%;
+    display:inline-block;
+    float: left;
+}
+#imgBox img{
+    width: 30vw;
+    height: 100%;
+}
+#detailTextBox{
+    width: 40%;
+    height: 100%;
+    margin:0;
+    padding: 0;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    float: left;
+
+}
+
+#detailText{
+    position: relative;
+    height: 75vh;
+}
+#userBox{
+    width: 100%;
+    height: calc(10vh - 20px);
+    position: absolute;
+    text-align: center;
+    margin-top: 20px ;
+    overflow: hidden;
+}
+#detailTitle{
+    margin:auto;
+    width: 80%;
+    height: 100%;
+    word-break:break-all;
+    white-space: nowrap;
+}
+.userInfo{
+    font-size: 10px;
+    color: #777b80;
+    display: inline-block;
+    height: 30%;
+    overflow: hidden;
+}
+#commentBox{
+    width: 100%;
+    height: calc(60vh - 100px);
+    margin-top: 10vh;
+    position: absolute;
+    box-shadow: 0px 2px 3px #fff;
+    border-top: 1px #fff groove;
+    border-bottom: 1px #fff groove;
+}
+#commentWrap{
+    width: 95%;
+    height: 100%;
+    margin-left:5%;
+    position: absolute;
+    overflow: auto;
+    word-break:normal;
+}
+#commentInput{
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+}
+.comment_setting{
+    width: 90%;
+    min-height: 30px;
+    margin:10px 0;
+	border-bottom:1px solid rgba(0,0,0,.0975);
+}
+#title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    width: 100%;
+    font-size: 22px;
+    height: 60%;
+}
+.user_id{
+    width: 20%;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #424242;
+}
+.user_cmt{
+    font-size: 15px;
+    line-height: 20px;
+}
+
+#cmtContent{
+    overflow: auto;
+    width: 16vw;
+    height: 7vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-left: 1vw;
+    border-top:1px #000 solid;
+
+
+}
+textarea:focus{
+    outline: none;
+}
+#cmtInput{
+    width: 18vw;
+    height: 6vh;
+    border:0;
+    padding: 0;
+    font-size: 23px;
+    word-wrap: break-spaces;
+    resize: none;
+    overflow: hidden;
+    margin-top:2vh;
+}
+
+#like{
+    width: 100%;
+    height: 4vh;
+    position: absolute;
+    bottom: 10.5vh;
+    font-size: 30px;
+    text-indent: 10px;
+    line-height: 4vh;
+}
+
+#like .fa-heart{
+    color: red;
+    cursor: pointer; 
+    font-size:20px;
+}
+.fa-comments{
+    cursor: pointer;
+    font-size: 20px;
+}
+#textBottom{
+    width: 18vw;
+    height: 10vh;
+    position: absolute;
+    bottom: -15vh;
+}
+.btn_setting{
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    z-index: 1;
+    color: #f9f9f9;
+}
+.right_btn{
+    right: 3vh;
+}
+.left_btn{
+    left: 3vh;
+}
+.tag{
+    color: #00B0FF;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 1px #424242;
+    width: 95%;
+}
+#hiddennum{display:none;}
+
+#likeCnt,#commentCnt{
+	font-size: 15px;
+}

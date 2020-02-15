@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="items">
+	<select id="selectCustomGift" parameterType="Survey" resultType="Item">
+
+	SELECT no,image,name,price
+		FROM(
+		SELECT no,image,name,price,rownum n
+		FROM(
+		SELECT i.no no,i.image image,i.name name,i.price price,SUM(p.rank)
+		FROM
+		(SELECT no,sex
+		FROM members
+		<![CDATA[
+		WHERE CEIL(ROUND(sysdate-birth_date,0)/365)>=#{age} AND
+		CEIL(ROUND(sysdate-birth_date,0)/365)<=#{maxAge}) m,
+		]]>
+		items i,pickme p
+		WHERE m.no=p.member_no AND m.sex=#{gender} AND i.CATEGORY_NO=(SELECT category_no
+		FROM(SELECT category_no,rank,rownum r
+		FROM
+		(SELECT category_no,SUM(rank)rank
+		FROM
+		(SELECT no,sex
+		FROM members
+				<![CDATA[
+		WHERE CEIL(ROUND(sysdate-birth_date,0)/365)>=#{age} AND
+		CEIL(ROUND(sysdate-birth_date,0)/365)<=#{maxAge}) m,events e,responses
+				]]>
+		r,respondents re
+		WHERE m.no=re.member_no AND e.no=re.event_no AND r.respondent_no=re.no AND
+		m.sex=#{gender} AND e.purpose_no=#{reason} AND re.target=#{relation}
+		GROUP BY category_no
+		ORDER BY rank desc))
+		WHERE r=1)AND i.no=p.item_no
+		GROUP BY i.no,i.image,i.name,i.price
+		ORDER BY SUM(p.rank) DESC))
+		WHERE n BETWEEN 1 AND 3
+
+	</select>
+	
+	<select id="selectList" resultType="Item" parameterType="PageVO">
+		SELECT no,categoryNo,image,name,price,brand,r
+		FROM(SELECT no,categoryNo,image,name,price,brand,rownum r 
+		FROM(SELECT no,category_no categoryNo,image,name
+		,price,brand
+	    FROM items 
+	    WHERE no NOT IN(${nos}) 
+	 	ORDER BY DBMS_RANDOM.VALUE))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectItemNos" resultType="int" parameterType="int">
+		SELECT item_no itemNo
+		FROM pickme
+		WHERE member_no = #{memberNo}
+	</select> 
+	
+	
+	<select id="selectItemArray" resultType="Item">
+		SELECT no,categoryNo,image,name,price,brand,r
+		FROM(SELECT no,categoryNo,image,name,price,brand,rownum r 
+		FROM(SELECT no,category_no categoryNo,image,name
+		,price,brand
+	    FROM items 
+	 	ORDER BY DBMS_RANDOM.VALUE))
+		WHERE r BETWEEN 1 AND 18
+	</select>
+	
+	<select id="selectCount" resultType="int" parameterType="int">
+		SELECT NVL(c.count,0) count
+		FROM(SELECT p.member_no no,count(*) count
+		FROM members m,pickme p 
+		WHERE p.member_no = m.no(+)
+		GROUP BY p.member_no) c,members m
+		WHERE c.no(+) = m.no AND m.no = #{memberNo}
+	</select>
+	
+	
+</mapper>  

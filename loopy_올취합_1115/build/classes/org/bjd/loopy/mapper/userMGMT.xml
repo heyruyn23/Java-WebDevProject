@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMGMT">
+	
+	<select id="selectFollower" parameterType="int" resultType="User">
+		SELECT u.no, u.profile profile, u.nick_en nickEn, u.nick_ko nickKo, u.no userNo, um.actor_no actorNo, um.actee_no acteeNo, um.sb_type sbType, um.regdate
+		FROM user_mgmt um, users u
+		WHERE sb_type = 's' 
+		AND actee_no = #{userNo} AND um.actor_no=u.no
+	</select>
+	
+	<select id="selectFollowing" parameterType="int" resultType="User">
+		SELECT u.no, u.profile profile, u.nick_en nickEn, u.nick_ko nickKo, u.no userNo, um.actor_no actorNo, um.actee_no acteeNo, um.sb_type sbType, um.regdate
+		FROM user_mgmt um, users u
+		WHERE sb_type = 's' 
+		AND actor_no = #{userNo} AND um.actee_no=u.no
+	</select>
+	
+	<select id="selectFollowerCnt" parameterType="int" resultType="int">
+		SELECT count(*) followerCnt
+		FROM user_mgmt
+		WHERE sb_type='s' AND actee_no=#{no}
+	</select>
+	
+	<insert id="subscribe" parameterType="User">
+		INSERT INTO no,actor_no, actee_no, sb_type, regdate
+		VALUES(user_mgmt_seq.nextval,#{loginUserNo},#{userNo},'s',systimestamp)
+	</insert>
+	
+	<select id="selectBlock" parameterType="int" resultType="User">
+				
+		SELECT users.no, block.acteeNo userNo, users.profile, users.nick_en nickEn, users.nick_ko nickKo, block.regdate regdate
+		FROM users,
+		(SELECT u.no no, um.actor_no actorNo, 
+		um.actee_no acteeNo, um.regdate
+				FROM user_mgmt um, users u
+				WHERE sb_type = 'b' 
+				AND actor_no = #{userNo} AND um.actor_no=u.no) block
+		WHERE acteeNo=users.no
+
+	</select>
+	
+</mapper>

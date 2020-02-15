@@ -1,0 +1,439 @@
+/* html 영역 */
+html {
+	width: 100%;
+	height: 100%;
+}
+
+/* 바디 영역 */
+body {
+	width: 100%;
+	height: 100%;
+}
+
+/* 백그라운드 이미지 영역 */
+#joinBodyImage {
+	width: 100%;
+	height: 100%;
+	background-image: url("img/login_image.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-weight: bold;
+}
+
+/* 회원가입 컨텐츠 영역 */
+#joinContents {
+	width: 600px;
+	height: 670px;
+	margin: auto;
+	padding-top: 27px;
+}
+
+/* 타이틀 */
+.join_title {
+	font-size: 60px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 타이틀 세부 */
+.join_title_detail {
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 이메일 영역 묶음 */
+.join_email_tie {
+	margin-left: 50px;
+	margin-top: 27px;
+	color: #fff;
+}
+
+/* 이메일 영역 제목 */
+.join_email_title {
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 이메일 인풋 */
+.join_email_inp {
+	font-weight: bold;
+	font-size: 17px;
+	width: 230px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 이메일 셀렉트 */
+.join_email_select {
+	font-weight: bold;
+	font-size: 17px;
+	width: 230px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 이메일 셀렉트 영역 직접입력 선택시 인풋 */
+.join_email_selectInp {
+	display: none;
+	font-weight: bold;
+	font-size: 17px;
+	width: 230px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 이메일 메세지 */
+.join_email_msg {
+	margin-top: 5px;
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 비밀번호 영역 묶음 */
+.join_password_tie {
+	margin-left: 50px;
+	margin-top: 27px;
+}
+
+/* 비밀번호 영역 제목 */
+.join_password_title {
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 비밀번호 인풋 */
+.join_password_inp {
+	font-weight: bold;
+	font-size: 17px;
+	width: 487px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 비밀번호 메세지 */
+.join_password_msg {
+	margin-top: 5px;
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 비밀번호 재확인 영역 묶음 */
+.join_msg_tie {
+	margin-left: 50px;
+	margin-top: 27px;
+}
+
+/* 비밀번호 재확인 영역 제목 */
+.join_msg_title {
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 비밀번호 재확인 인풋 */
+.join_msg_inp {
+	font-weight: bold;
+	font-size: 17px;
+	width: 487px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 비밀번호 재확인 메세지 */
+.join_msg_msg {
+	margin-top: 5px;
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 생년월일 영역 묶음 */
+.join_birthDate_tie {
+	margin-left: 50px;
+	margin-top: 27px;
+}
+
+/* 생년월일 영역 제목 */
+.join_birthDate_title {
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 생년월일 인풋 묶음 */
+#birthDate {
+	
+}
+
+/* 년 */
+#year {
+	font-weight: bold;
+	font-size: 17px;
+	width: 220px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 월 */
+#month {
+	font-weight: bold;
+	font-size: 17px;
+	width: 124px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 일 */
+#date {
+	font-weight: bold;
+	font-size: 17px;
+	width: 124px;
+	height: 35px;
+	text-align: center;
+	border: 2px solid #F38B93;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 생년월일 메세지 */
+.join_birthDate_msg {
+	margin-top: 5px;
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 성별 영역 묶음 */
+.join_gender_tie {
+	margin-left: 50px;
+	margin-top: 27px;
+}
+
+/* 성별 영역 제목 */
+.join_gender_title {
+	color: #fff;
+	text-shadow: 5px 5px 10px #000;
+}
+
+/* 성별 폰트어썸 영역 묶음 */
+.join_gender_fas_tie {
+	
+}
+
+/* 폰트어썸 남자 */
+.fas_M {
+	width: 50px;
+	height: 70px;
+	font-size: 50px;
+	cursor: pointer;
+	margin-left: 130px;
+	color: #fff;
+	text-align: center;
+	padding-top: 20px;
+	text-shadow: 5px 5px 5px #424242;
+}
+
+/* 폰트어썸 남자 클릭시 */
+.fas_M.ok {
+	width: 50px;
+	height: 70px;
+	font-size: 50px;
+	cursor: pointer;
+	margin-left: 130px;
+	color: #424242;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 100px;
+	padding-top: 20px;
+	text-shadow: 5px 5px 5px #fff;
+}
+
+/* 폰트어썸 여자 */
+.fas_F {
+	width: 50px;
+	height: 70px;
+	font-size: 50px;
+	cursor: pointer;
+	margin-left: 150px;
+	color: #fff;
+	text-align: center;
+	padding-top: 20px;
+	text-shadow: 5px 5px 5px #424242;
+}
+
+/* 폰트어썸 여자 클릭시 */
+.fas_F.ok {
+	width: 50px;
+	height: 70px;
+	font-size: 50px;
+	cursor: pointer;
+	margin-left: 150px;
+	color: #424242;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 100px;
+	padding-top: 20px;
+	text-shadow: 5px 5px 5px #fff;
+}
+
+/* 성별 폰트어썸 남자 인풋 라디오 */
+.join_gender_inputM {
+	display: none;
+}
+
+/* 성별 폰트어썸 여자 인풋 라디오 */
+.join_gender_inputF {
+	display: none;
+}
+
+/* 성별 셀렉트 */
+/*.join_gender_select {*/
+/*font-weight: bold;*/
+/*font-size: 17px;*/
+/*width: 490px;*/
+/*height: 35px;*/
+/*text-align: center;*/
+/*border: 2px solid #F38B93;*/
+/*}*/
+
+/* 성별 메세지 */
+.join_gender_msg {
+	color: #fff;
+}
+
+/* 이전, 회원가입 버튼 묶음 */
+.join_btn_tie {
+	text-align: center;
+}
+
+/* 이전 버튼 */
+.join_before_btn {
+	font-weight: bold;
+	font-size: 17px;
+	margin-top: 5px;
+	width: 150px;
+	height: 45px;
+	border: none;
+	background-color: #F7ECCC;
+	margin-left:20px;
+	margin-right: 25px;
+	cursor: pointer;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 회원가입 버튼 */
+.join_join_btn {
+	font-weight: bold;
+	font-size: 17px;
+	margin-top: 5px;
+	width: 150px;
+	height: 45px;
+	border: none;
+	background-color: #F7ECCC;
+	margin-left: 25px;
+	cursor: pointer;
+	box-shadow: 3px 3px 3px #424242;
+}
+
+/* 백그라운드 이미지 영역 */
+#loginBodyImage {
+    font-weight: bold;
+    background-image: url('img/login_image.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* 컨텐츠영역 */
+#loginContents {
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    padding-top: 150px;
+    text-align: center;
+}
+
+/* 타이틀 */
+.login_title {
+    font-size: 60px;
+    padding-top: 30px;
+    color: #fff;
+}
+
+/* 타이틀 보다작은 세부 타이틀 */
+.login_title_detail {
+    font-size: 13px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* 이메일 인풋 */
+.login_email_inp {
+    width: 350px;
+    height: 35px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 17px;
+    border: 2px solid #F38B93;
+}
+
+/* 비밀번호 인풋 */
+.login_password_inp {
+    width: 350px;
+    height: 35px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 17px;
+    border: 2px solid #F38B93;
+}
+
+/* 로그인 버튼 */
+.login_btn {
+    width: 350px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size:17px;
+    margin-bottom: 30px;
+    background-color: #F7ECCC;
+}
+
+/* 메뉴링크 아이디 찾기 */
+.login_id_find {
+    text-decoration: none;
+    border-right: 1px solid #fff;
+    padding-right: 10px;
+    color: #fff;
+}
+
+/* 메뉴링크 비밀번호 찾기 */
+.login_password_find {
+    text-decoration: none;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+}
+
+/* 메뉴링크 회원가입 */
+.login_join_form {
+    text-decoration: none;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+    color: #fff;
+}

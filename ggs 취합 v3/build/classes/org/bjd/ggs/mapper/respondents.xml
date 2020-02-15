@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="respondents">
+	<insert id="insertE" parameterType="Respondent">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			SELECT respondents_seq.nextval
+			FROM dual
+		</selectKey>
+		INSERT INTO respondents(no, member_no, target, regdate, event_no)
+		VALUES(#{no}, #{memberNo}, 
+						#{target}, systimestamp, #{eventNo})
+	</insert>
+</mapper>  
+
+
+
+

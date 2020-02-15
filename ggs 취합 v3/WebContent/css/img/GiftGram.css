@@ -1,0 +1,392 @@
+html{
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+main{
+    width: 85%;
+    min-height: calc(100vh - 68px);
+    margin: auto;
+    overflow: hidden;
+    background-color: #f9f9f9;
+
+}
+#content1{
+    width:100%;
+    height: 12%;
+    background-color: #fff;
+    border-bottom: 1px #fff solid;
+}
+#bestGift{
+    width: 100%;
+    height: auto;
+    margin: 100px auto;
+    text-align: center;
+    float: left;
+
+}
+#bestList{
+	margin:auto;
+    border-bottom:  2px solid #e1e1e1;
+
+
+
+}
+.best_card_setting{
+    width: 20vw;
+    height: 30vh;
+    object-fit: cover;
+    margin:30px 30px 60px 30px;
+    display: inline-block;
+}
+.gift_card_wrap{
+    width: 20%;
+    height: 330px;
+    background-color: rgba(0, 0, 0,.2);
+    border-radius: 3%;
+    position: absolute;
+    margin:auto;
+    transition: ease ,0.2s;
+    display: none;
+}
+#giftList{
+    width: 70vw;
+    min-height: 100%;
+    font-size: 0;
+    /*background-color: red;*/
+    margin: auto;
+}
+.gift_card_setting{
+    width: 11vw;
+    height: 12vw;
+    margin:0px 0vw 50px 2.5vw;
+    display: inline-block;
+    cursor: pointer;
+
+
+}
+.btn_setting{
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+    left: 50%;
+}
+#bestFont{
+    font-family: 'Staatliches', cursive;
+    font-size: 25px;
+    font-weight: bold;
+}
+#content2{
+    width: 100%;
+    height: auto;
+}
+#giftSide{
+    float: left;
+    width: 100%;
+}
+
+.btn_setting2{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    box-shadow: 1px 1px 2px #424242;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    right: 1%;
+    cursor: pointer;
+}
+#giftFilter{
+    bottom: 200px;
+
+}
+#writeBtn{
+    bottom:100px;
+
+}
+#upBtn{
+    bottom:300px;
+    display: none;
+}
+.gift_img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.gift_img:hover .gift_card_wrap{
+    display: inline-block;
+}
+.card_title{
+	
+}
+.card_title span{
+	overflow:hidden;
+    display: block;
+    position: relative;
+    bottom: 30px;
+    opacity: 0;
+    transition: ease-in 0.2s;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    box-shadow: 0 0 1px #f9f9f9;
+    color:black;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom-left-radius:10px ;
+    border-bottom-right-radius:10px ;
+    text-overflow:ellipsis;
+    background-color: #e7e7e7;
+
+}
+.aside{
+    width: 100%;
+    text-align: center;
+}
+#filterBox{
+    text-align: center;
+    line-height: 6vh;
+    font-size: 30px;
+    font-weight: bold;
+    position: fixed;
+    width: 300px;
+    min-height: 100px;
+    box-shadow: 1px 1px 1px #424242;
+    right: 100px;
+    background-color: #000;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    bottom: 180px;
+    display: none;
+}
+#filterBox::before{
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #000;
+    position: absolute;
+    bottom: 30px;
+    right: -40px;
+}
+.filter_list{
+    font-size: 20px;
+    background-color: #fff;
+    width: 200px;
+    margin:3px auto 3px auto;
+    border-radius: 20px;
+    display: none;
+}
+.filter_list:hover{
+    color: #fff;
+    background-color: #2196F3;
+}
+.filter_setting{
+    width: 130px;
+    background-color: #F38B93;
+    color:#fff;
+    margin: 5px auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+#popWrap{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 10;
+    display: none;
+}
+#writePop{
+    min-width: 30vw;
+    height: 60%;
+    background: #f9f9f9;
+    position: fixed;
+    left: 35%;
+    top:25%;
+    z-index: 13;
+    box-shadow: 1px 1px 1px #f9f9f9;
+    display: none;
+    overflow: hidden;
+}
+#imgBox{
+    width: 30vw;
+    height: 60vh;
+    float: left;
+}
+#mainImg{
+    width: 30vw;
+    height: 100%;
+    background-color: #e5e5e5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    box-shadow: 0px 0px 1px #424242;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+#mainImg:hover #imgInput{
+    display: block;
+}
+#imgInput{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+}
+#imgInput .fa-plus-circle{
+    width: 40px;
+    font-size: 30px;
+    text-align: center;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    top:50%;
+    left: 50%;
+    margin-left: -20px;
+    margin-top:-20px;
+    color: #fff;
+}
+
+
+#textBox{
+    width: 20vw;
+    height: 100%;
+    float: right;
+    display: none;
+    text-align: center;
+    margin-top:60px
+}
+#writeTitle{
+    margin-top: 15px;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#writeTag{
+    margin: 15px 0;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #00B0FF;
+}
+
+.line{
+    width: 100%;
+    margin:20px auto;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+#sub_img{
+    width: 100%;
+    height: 120px;
+    margin: 10px 0;
+    text-align: center;
+    overflow-y: auto;
+   
+}
+    
+.sub_list{
+    width: 100px;
+    height: 100px;
+    margin-left: 2%;
+    background: #777b80;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.close{
+    position: absolute;
+    top: 3%;
+    font-size: 30px;
+    right: 3%;
+    cursor: pointer;
+    z-index: 1;
+}
+.btn_next{
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display:none;
+}
+.write_setting{
+    width: 80%;
+    height: 50px;
+    margin: 15px auto 15px auto;
+    text-align: center;
+}
+.more_btn{
+    background-color: black;
+    color: #fff;
+    width: 80px;
+    height: 50px;
+    margin-top: 15px
+}
+.input_btn{
+    color: red;
+}
+#filterAge{
+    cursor: pointer;
+}
+#filterGender{
+    cursor: pointer;
+}
+
+.gift_img:hover{opacity: 0.5}
+.gift_img:hover+.card_title span{
+    opacity: 1;
+    bottom: 0px;
+}
+.filter_list{
+    height: 6vh;
+}
+.best_btn{
+    width: 80px;
+    height: 50px;
+    background-color: #000;
+    color:#fff;
+    font-size: 20px;
+}
+#moreBtn{
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 0 1px #424242;
+    margin-bottom: 30px;
+}
+#banner{
+    width: 100vw;
+    height: 300px;
+    background-image: url("img/gift_gram.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.write_title{
+    font-size: 27px;
+    font-weight: bold;
+}
+input:focus {
+    outline: none;
+}
+.img_del:hover{
+	color:#fff;
+}

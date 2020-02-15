@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BLKTag">
+	
+	<select id="selectList" resultType="String" parameterType="BLKTag">
+		SELECT tag
+		FROM blk_tag bt,tags t
+		WHERE bt.tag_no =t.no
+		AND acs_type=#{acsType}
+		AND target_no=#{targetNo}
+	</select>
+	
+	<insert id="insert" parameterType="BLKTag">
+		INSERT INTO blk_tag(NO,TAG_NO,ACS_TYPE,TARGET_NO,REGDATE)
+		VALUES(blk_tag_seq.nextval,#{tagNo},#{acsType},#{targetNo},systimestamp)
+	</insert>
+	
+</mapper>

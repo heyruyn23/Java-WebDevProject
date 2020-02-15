@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 이렇게 설정해주면 계속 쓸수있음! -->
+	
+	<!-- null 입력 허용 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<!-- 패키지명이 길어졌을 경우 편리하게 사용하는 별칭 -->
+	<typeAliases>
+		<typeAlias alias="Article" type="org.bjd.ggs.vo.Article"/>
+		<typeAlias alias="Category" type="org.bjd.ggs.vo.Category"/>
+		<typeAlias alias="Comment" type="org.bjd.ggs.vo.Comment"/>
+		<typeAlias alias="Event" type="org.bjd.ggs.vo.Event"/>
+		<typeAlias alias="GiftGram" type="org.bjd.ggs.vo.GiftGram"/>
+		<typeAlias alias="Image" type="org.bjd.ggs.vo.Image"/>
+		<typeAlias alias="Item" type="org.bjd.ggs.vo.Item"/>
+		<typeAlias alias="Like" type="org.bjd.ggs.vo.Like"/>
+		<typeAlias alias="Member" type="org.bjd.ggs.vo.Member"/>
+		<typeAlias alias="Pickme" type="org.bjd.ggs.vo.Pickme"/>
+		<typeAlias alias="Purpose" type="org.bjd.ggs.vo.Purpose"/>
+		<typeAlias alias="Respondent" type="org.bjd.ggs.vo.Respondent"/>
+		<typeAlias alias="Response" type="org.bjd.ggs.vo.Response"/>
+		<typeAlias alias="Winner" type="org.bjd.ggs.vo.Winner"/>
+		<typeAlias alias="PageVO" type="org.bjd.ggs.vo.PageVO"/>
+		<typeAlias alias="PageVOS" type="org.bjd.ggs.vo.PageVOS"/>
+		<typeAlias alias="Survey" type="org.bjd.ggs.vo.Survey"/>
+		<typeAlias alias="Number" type="org.bjd.ggs.vo.Number"/>
+		<typeAlias alias="Filter" type="org.bjd.ggs.vo.Filter"/>
+	</typeAliases>
+
+	<!-- 맵퍼 경로 설정 -->
+	<mappers>
+		<mapper resource="org/bjd/ggs/mapper/board.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/categories.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/comments.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/events.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/giftGrams.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/images.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/items.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/likes.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/members.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/pickmes.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/purposes.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/respondents.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/responses.xml"></mapper>
+		<mapper resource="org/bjd/ggs/mapper/winners.xml"></mapper>
+	</mappers>
+
+</configuration>

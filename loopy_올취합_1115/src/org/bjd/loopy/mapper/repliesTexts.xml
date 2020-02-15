@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="repliesTexts">
+	
+	<select id = "selectList"
+	resultType = "ReplyText"
+	parameterType="PageVO">
+		SELECT no, text, regdate, textNo, nickKo, profile, likeCount, seq, userNo
+		FROM  (SELECT rt.no no, rt.text text, rt.regdate regdate, rt.seq seq,
+				 		rt.text_no textNo, u.nick_ko nickKo, u.no userNo,
+				  		u.profile profile, likeCount, rownum r
+				FROM replies_texts rt, users u, (SELECT target_no, count(*) likeCount
+												FROM likes
+												WHERE like_type = 'r'
+												GROUP BY TARGET_NO) l
+				WHERE rt.user_no = u.no AND rt.no = l.target_no(+) AND rt.text_no = #{typeNo}
+				ORDER BY rt.no ASC)
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectTotal"
+	parameterType="int"
+	resultType="int">
+		SELECT COUNT(*)
+		FROM replies
+		WHERE text_no = #{textNo}
+	</select>
+	
+</mapper>

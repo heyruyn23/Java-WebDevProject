@@ -1,0 +1,92 @@
+.mypage_main_img{
+    width: 100%;
+    height: 300px;
+    background-image: url("img/gift4.jpg");
+    background-size: cover;
+    background-position: bottom;
+    text-align: center;
+    line-height: 300px;
+    font-size: 38px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #424242;
+    font-weight: bold;
+}
+#mypageContentSize{
+    width: 1200px;
+    min-height: 300px;
+    margin: auto;
+}
+.mypage_content_size{
+    width: 400px;
+    float:left;
+    height: 300px;
+    text-align: center;
+    position: relative;
+}
+.mypage_content_size>span{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    display: block;
+    color: #424242;
+    text-shadow: 1px 1px 1px #424242;
+}
+.mypage_content_size>em{
+    bottom:10px;
+    left: 50px;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 10px;
+    display: block;
+    color: #424242;
+    position: absolute;
+}
+#mypageFreeTitles a{
+    text-decoration: none;
+    color: #424242;
+    display: block;
+    padding-top: 10px;
+    border-bottom: 1px gray dashed;
+}
+#mypageGiftgramImgsize li{
+    float: left;
+    margin:0 10px;
+}
+#mypageGiftgramImgsize li:hover{
+    transform: scale(1.2);
+}
+#mypageGiftgramImgsize img{
+    width: 110px;
+    height: 110px;
+
+}
+.mypage_recommendation_size{
+    width: 1200px;
+    height: 140px;
+    clear: both;
+    text-align: center;
+}
+.mypage_recommendation_size>div{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    color: #424242;
+    text-shadow: 1px 1px 1px #424242;
+}
+.mypage_recommendation_size>ul{
+    padding: 0 20px ;
+}
+.mypage_recommendation_size>ul>li{
+    float: left;
+    margin: 20px 10px;
+    width: 50px;
+    height: 70px;
+}
+.mypage_recommendation_size>ul>li:hover{
+    transform: scale(1.3);
+}
+.mypage_recommendation_size>ul>li>img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}

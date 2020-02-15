@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- aop : aop 설정 -->
+	
+	<!-- tx : transaction 설정 -->
+	
+	<!-- WAS가 생성한 커넥션풀을 JNDI로 찾음 -->
+	<jee:jndi-lookup jndi-name="java:comp/env/oraclexe"
+		id="dataSource" />
+
+	<!-- SqlSessionFactory 설정 p:dataSource-ref : 커넥션풀 의존성 주입 p:configLocation 
+		: mybatis-config.xml 경로 설정 -->
+
+	<bean id="sqlSessionFactory"
+		p:configLocation="/WEB-INF/mybatis-config.xml"
+		p:dataSource-ref="dataSource" 
+		class="org.mybatis.spring.SqlSessionFactoryBean"/>
+
+	<!-- SqlSession 설정 -->
+	<bean id="sqlSession"
+		c:sqlSessionFactory-ref="sqlSessionFactory" 
+		class="org.mybatis.spring.SqlSessionTemplate"/>
+	
+	
+	<!-- DAO 설정 -->
+	<bean
+	id="boardDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.BoardDAOImpl"/>
+	<bean
+	id="categoriesDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.CategoriesDAOImpl"/>
+	<bean
+	id="commentsDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.CommentsDAOImpl"/>
+	<bean
+	id="eventsDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.EventsDAOImpl"/>
+	<bean
+	id="giftGramsDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.GiftGramsDAOImpl"/>
+	<bean
+	id="imagesDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.ImagesDAOImpl"/>
+	<bean
+	id="itemsDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.ItemsDAOImpl"/>
+	<bean
+	id="likesDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.LikesDAOImpl"/>
+	<bean
+	id="membersDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.MembersDAOImpl"/>
+	<bean
+	id="pickmesDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.PickmesDAOImpl"/>
+	<bean
+	id="purposesDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.PurposesDAOImpl"/>
+	<bean
+	id="respondentsDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.RespondentsDAOImpl"/>
+	<bean
+	id="responsesDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.ResponsesDAOImpl"/>
+	<bean
+	id="winnersDAO"
+	p:session-ref="sqlSession"
+	class="org.bjd.ggs.dao.WinnersDAOImpl"/>
+
+	<!-- service 설정 -->
+	<bean
+	id="boardService"
+	p:boardDAO-ref="boardDAO"
+	p:paginateUtil-ref="paginateUtil"
+	p:commentsDAO-ref="commentsDAO"
+	p:likesDAO-ref="likesDAO"
+	class="org.bjd.ggs.service.BoardServiceImpl"/>
+	<bean
+	id="categoriesService"
+	p:categoriesDAO-ref="categoriesDAO"
+	class="org.bjd.ggs.service.CategoriesServiceImpl"/>
+	<bean
+	id="commentsService"
+	p:commentsDAO-ref="commentsDAO"
+	p:paginateUtil-ref="paginateUtil"
+	class="org.bjd.ggs.service.CommentsServiceImpl"/>
+	<bean
+	id="eventsService"
+	p:eventsDAO-ref="eventsDAO"
+	p:paginateUtil-ref="paginateUtil"
+	class="org.bjd.ggs.service.EventsServiceImpl"/>
+	<bean
+	id="giftGramsService"
+	p:giftGramsDAO-ref="giftGramsDAO"
+	class="org.bjd.ggs.service.GiftGramsServiceImpl"/>	
+	<bean
+	id="imagesService"
+	p:imagesDAO-ref="imagesDAO"
+	class="org.bjd.ggs.service.ImagesServiceImpl"/>	
+	<bean
+	id="itemsService"
+	p:itemsDAO-ref="itemsDAO"
+	class="org.bjd.ggs.service.ItemsServiceImpl"/>	
+	<bean
+	id="likesService"
+	p:likesDAO-ref="likesDAO"
+	class="org.bjd.ggs.service.LikesServiceImpl"/>
+	<bean
+	id="membersService"
+	p:membersDAO-ref="membersDAO"
+	class="org.bjd.ggs.service.MembersServiceImpl"/>
+	<bean
+	id="pickmesService"
+	p:pickmesDAO-ref="pickmesDAO"
+	class="org.bjd.ggs.service.PickmesServiceImpl"/>
+	<bean
+	id="purposesService"
+	p:purposesDAO-ref="purposesDAO"
+	class="org.bjd.ggs.service.PurposesServiceImpl"/>
+	<bean
+	id="respondentsService"
+	p:respondentsDAO-ref="respondentsDAO"
+	class="org.bjd.ggs.service.RespondentsServiceImpl"/>
+	<bean
+	id="responsesService"
+	p:responsesDAO-ref="responsesDAO"
+	class="org.bjd.ggs.service.ResponsesServiceImpl"/>
+	<bean
+	id="winnersService"
+	p:winnersDAO-ref="winnersDAO"
+	class="org.bjd.ggs.service.WinnersServiceImpl"/>
+	
+	<!-- util 설정 -->
+	<bean
+	id="fileRenameUtil"
+	class="org.bjd.ggs.util.FileRenameUtil"/>
+	
+	<bean 
+	id ="resizeImageUtil"
+	class="org.bjd.ggs.util.ResizeImageUtil"/>
+	
+	<bean
+	id="paginateUtil"
+	class="org.bjd.ggs.util.PaginateUtil"/>
+</beans>

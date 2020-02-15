@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	
+	<Resource 
+		name = "jdbc/oracle"
+		auth="Container"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:xe"
+		username="loopy"
+		password="1111"
+		type="javax.sql.DataSource"
+		maxIdle="20"
+		maxTotal="20"
+		maxWaitMillis="-1"
+	/>
+	<!-- 
+		Connection Pool은 개념
+			Java에서는 DataSource객체가 구현
+		
+		maxIdle : 커넥션의 기본 갯수
+		maxActive : 커넥션의 최대 갯수
+		maxWait : 최대 대기 시간, 값을 -1주면 무한
+	 -->
+	
+</Context>

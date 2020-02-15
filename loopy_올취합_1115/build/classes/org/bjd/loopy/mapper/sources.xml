@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sources">
+	
+	<select id="selectSource" resultType="Source" parameterType="int">
+		SELECT ss.no no, ss.name name, ss.mp3_name mp3Name, ss.regdate regdate
+		FROM blk_source bs, sources ss, songs s
+		WHERE bs.source_no = ss.no AND s.no=#{no}
+	</select>
+	<select id="selectList" resultType="Source" parameterType="PageVO">
+SELECT no,userNo,NAME,nickKO,nickEn,mp3Name,regdate
+FROM(SELECT no,userNo,NAME,nickKO,nickEn,mp3Name,regdate,rownum r
+		FROM(SELECT s.NO,s.USER_NO userNo,NAME, nick_ko nickKO,nick_en nickEn,MP3_NAME mp3Name, s.REGDATE	
+			FROM USERS u,SOURCES s
+			WHERE s.user_no = u.no
+			ORDER BY 1 DESC))
+WHERE r BETWEEN #{start} AND #{end}
+</select>
+
+<select id="selectTotal" resultType="int">
+	SELECT COUNT(*)
+	FROM sources
+</select>
+	
+</mapper>

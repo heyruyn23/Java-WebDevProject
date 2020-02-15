@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rps">
+	
+	<select id="selectCnt" resultType="int">
+		SELECT COUNT(*) cnt
+		FROM dual, (SELECT distinct u.no
+					FROM users u , rps r
+					WHERE u.no = r.user_no(+) AND r.rps is not null)
+
+	</select>
+	
+	<select id="selectSum" resultType="int">
+		SELECT sum(rps) total
+		FROM users u , rps r
+		WHERE u.no = r.user_no(+) AND r.rps is not null
+	</select>
+	
+	<select id="selectSTDDEV" resultType="int">
+		SELECT STDDEV(rps)
+		FROM dual, (select u.no, sum(r.rps) rps
+		from users u, rps r
+		where u.no = r.user_no
+		group by u.no)
+	</select>
+	
+	<select id="selectVAR" resultType="int">
+		SELECT VARIANCE(rps)
+		FROM dual, (select u.no, sum(r.rps) rps
+		from users u, rps r
+		where u.no = r.user_no
+		group by u.no)
+	</select>
+	
+</mapper>

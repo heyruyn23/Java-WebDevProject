@@ -1,0 +1,248 @@
+@charset="UTF-8";
+        #post{
+            width:1200px;
+            min-height: 150px;
+            margin: 0 auto;
+        }
+        .postName{
+            width: 500px;
+            height: 50px;
+            margin-left: 50px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        .postUserInformation li{
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+
+        .postUser{
+            width: 200px;
+            height: 30px;
+            margin-left: 50px;
+        }
+
+        .postDate{
+            width: 100px;
+            height: 30px;
+        }
+
+        .postTime{
+            width: 100px;
+            height: 30px;
+        }
+
+        .viewer{
+            margin: 0 auto;
+            width: 1160px;
+            height: 600px;
+            border: 1px solid #e5e5e5;
+            padding: 20px;
+        }
+
+        .postInformation{
+            width: 1200px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .postInformation select{
+            width:70px;
+            height: 23px;
+            line-height: 23px;
+            vertical-align: middle;
+        }
+
+        .postInformation .postLikeCount{
+            transition: .8s ease;
+        }
+
+        .postInformation .postLike{
+            height: 21px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .postInformation .close{
+            margin-left: 650px;
+        }
+
+        .userCommentForm{
+            width: 1200px;
+            height: 100px;
+            margin: 0 auto;
+            border-top: 2px solid #424242;
+            border-bottom: 2px solid #424242;
+        }
+
+        .userCommentForm div{
+            float: left;
+        }
+
+        .userCommentForm .profile{
+            width: 80px;
+            height: 80px;
+            margin: 9px 0 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .userCommentForm .profileBox{
+            border-radius: 50px;
+        }
+
+        .userCommentForm .commentWriteButton{
+            width: 100px;
+            height: 40px;
+            margin-top: 30px;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+        .userCommentForm .commentWriteButton button{
+            width: 100px;
+            height: 40px;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .commentWrite{
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+        .commentWrite textarea{
+            resize:none;
+            height: 90px;
+            width: 900px;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .userCommentList{
+            width: 1200px;
+            min-height: 0;
+        }
+
+        .commentPaginate{
+            width: 150px;
+            height: 50px;
+            background-color: #007cff;
+            margin: 0 auto;
+        }
+
+        .userComment, .userCommentReply{
+            height: 96px;
+            margin: 0 auto;
+            border-top: 1px solid #424242;
+            border-bottom: 1px solid #424242;
+            position: relative;
+        }
+
+        .userComment{
+            width: 1200px;
+            height: 96px;
+            margin: 0 auto;
+        }
+
+        .userCommentReply{
+            width: 1150px;
+            margin-left: 50px;
+        }
+
+        .profileArea, .commentText, .writeTime{
+            float: left;
+        }
+
+
+        .repProfile{
+            width: 60px;
+            height: 60px;
+            margin: 7px 0 0 7px;
+            overflow: hidden;
+            background-color: black;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .commentNickname{
+            width: 160px;
+            /*닉네임 이름 길어질때 어떻게 하는가?*/
+            min-height: 20px;
+            margin: 5px 0 0 10px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+
+        .commentText{
+            width: 700px;
+            height: 80px;
+            margin: 5px 0 0 10px;
+            border: 2px solid #424242;
+            border-radius: 4px;
+        }
+
+        .writeTime{
+            width: 150px;
+        }
+
+        .userCheck{
+            width: 250px;
+            height: 80px;
+            float: right;
+        }
+
+        .userCheck div{
+            text-align: center;
+            width: 40px;
+            font-size: 25px;
+            position: absolute;
+            line-height: 40px;
+        }
+
+        .userCheck .commentLike{
+            height: 40px;
+            transition: .8s ease;
+        }
+
+        .userCheck .commentLikeCount{
+            text-indent: -20px;
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            bottom:0;
+        }
+
+        .userCheck .commentAdj{
+            margin-left: 70px;
+            height: 40px;
+        }
+
+        .userCheck .commentDel{
+            margin-left: 70px;
+            height: 40px;
+            bottom: 0;
+        }
+
+        .userCheck .commentRep{
+            height: 40px;
+            right: 70px;
+        }
+
+        .userCheck .commentReRep{
+            height: 40px;
+            right: 70px;
+            bottom: 0;
+        }
+
+        .userCheck .commentReRep button{
+            border: 0;
+            font-size: 25px;
+            outline: none;
+            cursor: pointer;
+            height: 40px;
+            background-color: transparent;
+        }
